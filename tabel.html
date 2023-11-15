@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Tabel</title>
+    <script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            fontFamily: {
+                montserrat: ["Montserrat Alternates"],
+            },
+        },
+        corePlugins: {
+            preflight: false,
+        },
+    };
+</script>
+</head>
+<body>
+<div class="w-screen">
+    <div>
+      <div class="flex flex-col md:flex-row">
+        <aside id="sidebar"
+          class="fixed w-60 bg-[#C2151A] md:min-h-screen border-r border-gray-100 transform transition-transform ease-in-out duration-300">
+          <div class="flex items-center justify-center p-4 text-white">
+            <!-- logo -->
+            <a class="flex items-center mx-8 transition duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" viewBox="0 0 496 512">
+                <path fill="#FFBFC1"
+                  d="M248 8C111 8 0 119 0 256s111 248 248 248s248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88s-88-39.4-88-88s39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2c18.8-35.4 55.6-59.8 98.5-59.8c2.4 0 4.8.4 7.1 1.1c13 4.2 26.6 6.9 40.9 6.9c14.3 0 28-2.7 40.9-6.9c2.3-.7 4.7-1.1 7.1-1.1c42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="ml-1 mt-12 text-center">
+            <a class="flex items-center px-2 text-white font-semibold text-md py-3 transition duration-200 ml-2 hover:bg-white rounded-lg hover:text-[#C2151A] mr-3 hover:shadow-md">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 30 30" fill="none">
+                <path
+                  d="M0 0H13.125V10.2083H0V0ZM2.91667 2.91667V7.29167H10.2083V2.91667H2.91667ZM16.0417 0H29.1667V16.0417H16.0417V0ZM18.9583 2.91667V13.125H26.25V2.91667H18.9583ZM0 13.125H13.125V29.1667H0V13.125ZM2.91667 16.0417V26.25H10.2083V16.0417H2.91667ZM16.0417 18.9583H29.1667V29.1667H16.0417V18.9583ZM18.9583 21.875V26.25H26.25V21.875H18.9583Z"
+                  fill="#ffffff" />
+              </svg>
+              <span class="px-2 font-montserrat ">DASHBOARD</span>
+            </a>
+          </div>
+          <!-- nav -->
+          <nav class="ml-2 text-center">
+            <div class="flex flex-col h-[75vh] justify-between">
+              <div class="">
+                <div class="bg-white rounded-lg mr-3 shadow-md text-center">
+                <a class="flex items-center px-2 text-[#C2151A] font-semibold text-md py-3 mt-7 transition duration-200">
+                  <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14">
+                    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9.5 1.5H11a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-10a1 1 0 0 1 1-1h1.5" />
+                      <rect width="5" height="2.5" x="4.5" y=".5" rx="1" />
+                      <path d="M4.5 5.5h5M4.5 8h5m-5 2.5h5" />
+                    </g>
+                  </svg>
+                  <span class="px-2 font-montserrat">DATA TERLAMBAT</span>
+                </a>
+                </div>
+                <a class="flex items-center px-2 m-1 text-white font-semibold text-md py-3 mt-7 transition duration-200 hover:bg-white rounded-lg hover:text-[#C2151A] mr-3 hover:shadow-md">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 2048 2048">
+                    <path fill="currentColor"
+                      d="M1536 1408h192v128h-320v-384h128v256zm-256-896H256V384h1024v128zm192 384q119 0 224 45t183 124t123 183t46 224q0 119-45 224t-124 183t-183 123t-224 46q-119 0-224-45t-183-124t-123-183t-46-224q0-119 45-224t124-183t183-123t224-46zm0 1024q93 0 174-35t142-96t96-142t36-175q0-93-35-174t-96-142t-142-96t-175-36q-93 0-174 35t-142 96t-96 142t-36 175q0 93 35 174t96 142t142 96t175 36zM1166 768q-109 48-200 128H256V768h910zm-391 384q-14 31-25 63t-21 65H256v-128h519zm-519 384h451q3 32 8 64t14 64H256v-128zm594 384q50 71 116 128H0V0h1536v707l-32-2q-16-1-32-1t-32 1t-32 2V128H128v1792h722z" />
+                  </svg>
+                  <span class="px-2 font-montserrat">DATA KELUAR</span>
+                </a>
+                <a class="flex items-center px-2 text-white font-semibold text-md py-3 mt-7 transition duration-200 hover:bg-white rounded-lg hover:text-[#C2151A] mr-3 hover:shadow-md">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24">
+                    <g fill="none">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M12 7v6" />
+                      <circle cx="12" cy="16" r="1" fill="currentColor" />
+                      <path stroke="currentColor" stroke-linecap="round" stroke-width="1.5"
+                        d="M22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464c.974.974 1.3 2.343 1.41 4.536" />
+                    </g>
+                  </svg>
+                  <span class="px-2 font-montserrat">DATA PELANGGAR</span>
+                </a>
+              </div>
+
+              <div class="flex justify-center pr-6">
+                <a class="flex items-center px-2 text-white font-semibold text-md py-3 mt-7 transition duration-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 35 35" fill="none">
+                    <path
+                      d="M7.29167 30.625C6.48959 30.625 5.80271 30.3392 5.23104 29.7675C4.65938 29.1958 4.37403 28.5094 4.375 27.7083V7.29167C4.375 6.48959 4.66084 5.80271 5.2325 5.23104C5.80417 4.65938 6.49056 4.37403 7.29167 4.375H17.5V7.29167H7.29167V27.7083H17.5V30.625H7.29167ZM23.3333 24.7917L21.3281 22.6771L25.0469 18.9583H13.125V16.0417H25.0469L21.3281 12.3229L23.3333 10.2083L30.625 17.5L23.3333 24.7917Z"
+                      fill="white" />
+                  </svg>
+                  <span class="px-2 font-montserrat"><a class="flex items-center justify-center mt-7 text-white" href="/logout">LOG OUT</a></span>
+                </a>
+              </div>
+            </div>
+          </nav>
+        </aside>
+
+        <div id="mainContent" class="w-full md:flex-1 ml-60 transition-all duration-300">
+          <nav class="h-20 pl-4 pr-10 py-3 w-full flex justify-between bg-white text-white shadow-md">
+            <div class="flex items-center">
+              <button id="toggleSidebar" class="text-gray-800 mr-3 w-10 h-10">
+                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5">
+                  </path>
+                </svg>
+              </button>
+              <a rel="noopener noreferrer" href="" class="flex justify-start">
+                <div class="flex items-center justify-center">
+                  <img class="h-10"
+                    src="https://smktelkom-pwt.sch.id/wp-content/uploads/2018/10/logo-telkom-schools.png" alt="logo" />
+                </div>
+              </a>
+            </div>
+          </nav>
+          <main class="flex items-center justify-center">
+            <div>
+              <!-- content -->
+              <div class="py-8 px-4 md:px-16">
+                <div class="overflow-x-auto">
+                <div class="uppercase font-montserrat flex justify-start">
+                  <p class="">show</p>
+                  <div class="bg-gray-200 rounded-full px-4 flex items-center ml-4">
+                    <p class="mr-2">10</p>
+                    <svg width="22" height="13" viewBox="0 0 22 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9.83265 12.5968L0.343249 3.1073C-0.114417 2.64963 -0.114417 1.90764 0.343249 1.45003L1.45004 0.343238C1.90692 -0.113646 2.6474 -0.114526 3.10536 0.341285L10.6613 7.86184L18.2172 0.341285C18.6752 -0.114526 19.4157 -0.113646 19.8725 0.343238L20.9793 1.45003C21.437 1.90769 21.437 2.64968 20.9793 3.1073L11.49 12.5968C11.0323 13.0544 10.2903 13.0544 9.83265 12.5968Z" fill="black"/>
+                      </svg>                      
+                  </div>
+                  <p class="ml-4">entries</p>
+                  <div class="flex items-center ml-28 bg-gray-200 rounded-full px-4 py-1">
+                    <svg  width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M19.728 17.2913L15.8332 13.3971C15.6574 13.2214 15.4191 13.1237 15.1691 13.1237H14.5323C15.6105 11.7449 16.2512 10.0107 16.2512 8.12421C16.2512 3.63636 12.6142 0 8.12559 0C3.63698 0 0 3.63636 0 8.12421C0 12.612 3.63698 16.2484 8.12559 16.2484C10.0125 16.2484 11.747 15.6079 13.126 14.5298V15.1665C13.126 15.4165 13.2236 15.6547 13.3994 15.8305L17.2942 19.7246C17.6614 20.0918 18.2552 20.0918 18.6185 19.7246L19.7241 18.6193C20.0913 18.2521 20.0913 17.6584 19.728 17.2913ZM8.12559 13.1237C5.36367 13.1237 3.12523 10.8896 3.12523 8.12421C3.12523 5.36276 5.35977 3.12469 8.12559 3.12469C10.8875 3.12469 13.126 5.35885 13.126 8.12421C13.126 10.8857 10.8914 13.1237 8.12559 13.1237Z" fill="black"/>
+                    </svg>
+                    <p class="ml-14">search</p>                      
+                  </div>
+                  <div class="flex items-center bg-gray-200 rounded-full px-4 ml-40">
+                    <p class="mr-2">previous</p>
+                    <p class="mr-2">20</p>
+                    <p>next</p>
+                  </div>
+                </div>
+                <table class="m-8 font-montserrat table-fixed uppercase">
+                  <thead class="bg-black text-white ">
+                      <tr>
+                      <th class="rounded-tl-lg px-12 py-3 text-left relative">
+                        <span>nama</span>
+                        <svg class="absolute right-2 top-1/2 transform -translate-y-1/2" width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.98446 0.102148L0.860122 2.07614C0.713293 2.21258 0.713293 2.4332 0.860122 2.56819L1.21314 2.89622C1.35997 3.03266 1.59739 3.03266 1.74266 2.89622L3.25 1.49846L4.75578 2.89767C4.90261 3.03411 5.14003 3.03411 5.2853 2.89767L5.63988 2.56964C5.78671 2.4332 5.78671 2.21258 5.63988 2.07759L3.51554 0.103599C3.36871 -0.0342901 3.13129 -0.0342902 2.98446 0.102148Z" fill="white"/>
+                        <path d="M3.51554 7.89785L5.63988 5.92386C5.78671 5.78742 5.78671 5.5668 5.63988 5.43181L5.28686 5.10378C5.14003 4.96734 4.90261 4.96734 4.75734 5.10378L3.25 6.50154L1.74422 5.10233C1.59739 4.96589 1.35997 4.96589 1.2147 5.10233L0.860122 5.43036C0.713293 5.5668 0.713293 5.78742 0.860122 5.92241L2.98446 7.8964C3.13129 8.03429 3.36871 8.03429 3.51554 7.89785Z" fill="white"/>
+                        </svg>
+                      </th>
+                      <th class=" px-12 text-left relative">
+                        <span>kelas</span>
+                        <svg class="absolute right-2 top-1/2 transform -translate-y-1/2" width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.98446 0.102148L0.860122 2.07614C0.713293 2.21258 0.713293 2.4332 0.860122 2.56819L1.21314 2.89622C1.35997 3.03266 1.59739 3.03266 1.74266 2.89622L3.25 1.49846L4.75578 2.89767C4.90261 3.03411 5.14003 3.03411 5.2853 2.89767L5.63988 2.56964C5.78671 2.4332 5.78671 2.21258 5.63988 2.07759L3.51554 0.103599C3.36871 -0.0342901 3.13129 -0.0342902 2.98446 0.102148Z" fill="white"/>
+                        <path d="M3.51554 7.89785L5.63988 5.92386C5.78671 5.78742 5.78671 5.5668 5.63988 5.43181L5.28686 5.10378C5.14003 4.96734 4.90261 4.96734 4.75734 5.10378L3.25 6.50154L1.74422 5.10233C1.59739 4.96589 1.35997 4.96589 1.2147 5.10233L0.860122 5.43036C0.713293 5.5668 0.713293 5.78742 0.860122 5.92241L2.98446 7.8964C3.13129 8.03429 3.36871 8.03429 3.51554 7.89785Z" fill="white"/>
+                        </svg>
+                      </th>
+                      <th class=" px-12 text-left relative">
+                        <span>jurusan</span>
+                        <svg class="absolute right-2 top-1/2 transform -translate-y-1/2" width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.98446 0.102148L0.860122 2.07614C0.713293 2.21258 0.713293 2.4332 0.860122 2.56819L1.21314 2.89622C1.35997 3.03266 1.59739 3.03266 1.74266 2.89622L3.25 1.49846L4.75578 2.89767C4.90261 3.03411 5.14003 3.03411 5.2853 2.89767L5.63988 2.56964C5.78671 2.4332 5.78671 2.21258 5.63988 2.07759L3.51554 0.103599C3.36871 -0.0342901 3.13129 -0.0342902 2.98446 0.102148Z" fill="white"/>
+                        <path d="M3.51554 7.89785L5.63988 5.92386C5.78671 5.78742 5.78671 5.5668 5.63988 5.43181L5.28686 5.10378C5.14003 4.96734 4.90261 4.96734 4.75734 5.10378L3.25 6.50154L1.74422 5.10233C1.59739 4.96589 1.35997 4.96589 1.2147 5.10233L0.860122 5.43036C0.713293 5.5668 0.713293 5.78742 0.860122 5.92241L2.98446 7.8964C3.13129 8.03429 3.36871 8.03429 3.51554 7.89785Z" fill="white"/>
+                        </svg>
+                      </th>
+                      <th class=" px-12 text-left relative">
+                        <span>alasan</span>
+                        <svg class="absolute right-2 top-1/2 transform -translate-y-1/2" width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.98446 0.102148L0.860122 2.07614C0.713293 2.21258 0.713293 2.4332 0.860122 2.56819L1.21314 2.89622C1.35997 3.03266 1.59739 3.03266 1.74266 2.89622L3.25 1.49846L4.75578 2.89767C4.90261 3.03411 5.14003 3.03411 5.2853 2.89767L5.63988 2.56964C5.78671 2.4332 5.78671 2.21258 5.63988 2.07759L3.51554 0.103599C3.36871 -0.0342901 3.13129 -0.0342902 2.98446 0.102148Z" fill="white"/>
+                        <path d="M3.51554 7.89785L5.63988 5.92386C5.78671 5.78742 5.78671 5.5668 5.63988 5.43181L5.28686 5.10378C5.14003 4.96734 4.90261 4.96734 4.75734 5.10378L3.25 6.50154L1.74422 5.10233C1.59739 4.96589 1.35997 4.96589 1.2147 5.10233L0.860122 5.43036C0.713293 5.5668 0.713293 5.78742 0.860122 5.92241L2.98446 7.8964C3.13129 8.03429 3.36871 8.03429 3.51554 7.89785Z" fill="white"/>
+                        </svg>
+                      </th>
+                      <th class="rounded-tr-lg px-12 text-left relative">
+                        <span>status</span>
+                        <svg class="absolute right-2 top-1/2 transform -translate-y-1/2" width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.98446 0.102148L0.860122 2.07614C0.713293 2.21258 0.713293 2.4332 0.860122 2.56819L1.21314 2.89622C1.35997 3.03266 1.59739 3.03266 1.74266 2.89622L3.25 1.49846L4.75578 2.89767C4.90261 3.03411 5.14003 3.03411 5.2853 2.89767L5.63988 2.56964C5.78671 2.4332 5.78671 2.21258 5.63988 2.07759L3.51554 0.103599C3.36871 -0.0342901 3.13129 -0.0342902 2.98446 0.102148Z" fill="white"/>
+                        <path d="M3.51554 7.89785L5.63988 5.92386C5.78671 5.78742 5.78671 5.5668 5.63988 5.43181L5.28686 5.10378C5.14003 4.96734 4.90261 4.96734 4.75734 5.10378L3.25 6.50154L1.74422 5.10233C1.59739 4.96589 1.35997 4.96589 1.2147 5.10233L0.860122 5.43036C0.713293 5.5668 0.713293 5.78742 0.860122 5.92241L2.98446 7.8964C3.13129 8.03429 3.36871 8.03429 3.51554 7.89785Z" fill="white"/>
+                        </svg>
+                      </th>
+                      </tr>
+                  </thead>
+                  <tbody class="border-l border-r border-b border-black shadow-md">
+                      <tr class="even:bg-gray-100 odd:bg-white">
+                      <td class="text-center py-2">siswa</td>
+                      <td class="text-center">xi</td>
+                      <td class="text-center">rpl</td>
+                      <td class="text-center">kesiangan</td>
+                      <td class="text-center">
+                        <div class="bg-[#DDEBFF] flex items-center rounded-md my-2 mx-1">
+                          <svg class="ml-1 my-1" width="25" height="24" viewBox="0 0 29 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14.5 0.78125C6.64756 0.78125 0.28125 7.14756 0.28125 15C0.28125 22.8524 6.64756 29.2188 14.5 29.2188C22.3524 29.2188 28.7188 22.8524 28.7188 15C28.7188 7.14756 22.3524 0.78125 14.5 0.78125ZM21.0625 17.1875H14.5C14.2099 17.1875 13.9317 17.0723 13.7266 16.8671C13.5215 16.662 13.4062 16.3838 13.4062 16.0938V6.25C13.4062 5.95992 13.5215 5.68172 13.7266 5.4766C13.9317 5.27148 14.2099 5.15625 14.5 5.15625C14.7901 5.15625 15.0683 5.27148 15.2734 5.4766C15.4785 5.68172 15.5938 5.95992 15.5938 6.25V15H21.0625C21.3526 15 21.6308 15.1152 21.8359 15.3204C22.041 15.5255 22.1562 15.8037 22.1562 16.0938C22.1562 16.3838 22.041 16.662 21.8359 16.8671C21.6308 17.0723 21.3526 17.1875 21.0625 17.1875Z" fill="#288BFF" />
+                          </svg>
+                          <span class="text-[#638DDF] font-bold ml-1">menunggu</span>
+                        </div>
+                      </td>
+                      </tr>
+                      <tr class="even:bg-gray-100 odd:bg-white">
+                      <td class="text-center py-2">siswa</td>
+                      <td class="text-center">xi</td>
+                      <td class="text-center">rpl</td>
+                      <td class="text-center">kesiangan</td>
+                      <td class="text-center">
+                        <div class="bg-[#DDEBFF] flex items-center rounded-md my-2 mx-1">
+                          <svg class="ml-1 my-1" width="25" height="24" viewBox="0 0 29 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14.5 0.78125C6.64756 0.78125 0.28125 7.14756 0.28125 15C0.28125 22.8524 6.64756 29.2188 14.5 29.2188C22.3524 29.2188 28.7188 22.8524 28.7188 15C28.7188 7.14756 22.3524 0.78125 14.5 0.78125ZM21.0625 17.1875H14.5C14.2099 17.1875 13.9317 17.0723 13.7266 16.8671C13.5215 16.662 13.4062 16.3838 13.4062 16.0938V6.25C13.4062 5.95992 13.5215 5.68172 13.7266 5.4766C13.9317 5.27148 14.2099 5.15625 14.5 5.15625C14.7901 5.15625 15.0683 5.27148 15.2734 5.4766C15.4785 5.68172 15.5938 5.95992 15.5938 6.25V15H21.0625C21.3526 15 21.6308 15.1152 21.8359 15.3204C22.041 15.5255 22.1562 15.8037 22.1562 16.0938C22.1562 16.3838 22.041 16.662 21.8359 16.8671C21.6308 17.0723 21.3526 17.1875 21.0625 17.1875Z" fill="#288BFF" />
+                          </svg>
+                          <span class="text-[#638DDF] font-bold ml-1">menunggu</span>
+                        </div>
+                      </td>
+                      </tr>
+                      <tr class="even:bg-gray-100 odd:bg-white">
+                      <td class="text-center py-2">siswa</td>
+                      <td class="text-center">xi</td>
+                      <td class="text-center">rpl</td>
+                      <td class="text-center">kesiangan</td>
+                      <td class="text-center">
+                        <div class="bg-[#E1FFDC] flex items-center rounded-md my-2 mx-1">
+                        <svg class="ml-1 my-1" width="21" height="24" viewBox="0 0 31 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <mask id="mask0_829_123" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="31" height="34">
+                        <path d="M15.4999 2.4165L19.3302 5.21067L24.0719 5.20192L25.5281 9.714L29.3693 12.4936L27.8957 16.9998L29.3693 21.5061L25.5281 24.2857L24.0719 28.7978L19.3302 28.789L15.4999 31.5832L11.6695 28.789L6.92777 28.7978L5.47162 24.2857L1.63037 21.5061L3.10402 16.9998L1.63037 12.4936L5.47162 9.714L6.92777 5.20192L11.6695 5.21067L15.4999 2.4165Z" fill="white" stroke="white" stroke-width="2.91667" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10.3955 16.9998L14.0413 20.6457L21.333 13.354" stroke="black" stroke-width="2.91667" stroke-linecap="round" stroke-linejoin="round"/>
+                        </mask>
+                        <g mask="url(#mask0_829_123)">
+                        <path d="M-2 -0.5H33V34.5H-2V-0.5Z" fill="#4CDE49"/>
+                        </g>
+                        </svg>
+                        <span class="text-[#4BAA49] font-bold ml-1">diterima</span>
+                        </div>
+                      </td>
+                      </tr>
+                  </tbody>
+                </table>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+     </div>
+    </div>
+</div>
+
+<script>
+    const toggleSidebarButton = document.getElementById("toggleSidebar");
+    const sidebar = document.getElementById("sidebar");
+    const mainContent = document.getElementById("mainContent");
+
+    function toggleSidebar() {
+      sidebar.classList.toggle("-translate-x-64");
+      mainContent.classList.toggle("ml-0");
+      if (sidebar.classList.contains("-translate-x-64")) {
+        localStorage.setItem("sidebarStatus", "open");
+      } else {
+        localStorage.setItem("sidebarStatus", "closed");
+      }
+    }
+
+    toggleSidebarButton.addEventListener("click", toggleSidebar);
+
+    const storedSidebarStatus = localStorage.getItem("sidebarStatus");
+    if (storedSidebarStatus === "open") {
+      toggleSidebar();
+    }
+
+    const preloaderWrapper = document.querySelector('.preloader-wrapper');
+
+    window.addEventListener("load", function () {
+      setInterval(function () {
+        preloaderWrapper.classList.add('fade-out-animation');
+      }, 300);
+    })
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+
+</body>
+</html>

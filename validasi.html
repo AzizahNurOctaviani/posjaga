@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+    <script src="https://cdn.tailwindcss.com/3.3.0"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                fontFamily: {
+                    montserrat: ["Montserrat Alternates"],
+                },
+            },
+            corePlugins: {
+                preflight: false,
+            },
+        };
+    </script>
+    <title>Validasi</title>
+</head>
+<body class="bg-neutral-700 pt-80 pl-[700px]">
+    <button class="bg-white rounded-full p-4 flex items-center">
+        <svg class="mr-2" width="50" height="50" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <rect width="90" height="90" fill="url(#pattern0)"/>
+          <defs>
+            <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+              <use xlink:href="#image0_304_1288" transform="scale(0.0111111)"/>
+            </pattern>
+            <image id="image0_304_1288" width="90" height="90" xlink:href="data:image/png;base64,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"/>
+        </svg>
+        <span class="font-bold uppercase font-montserrat text-black">login berhasil!</span>
+    </button>
+</body>
+</html>

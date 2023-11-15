@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                fontFamily: {
+                    montserrat: ["Montserrat Alternates"],
+                },
+            },
+            corePlugins: {
+                preflight: false,
+            },
+        };
+    </script>
+    <style>
+        #login-success-popup {
+        display: none;
+    }
+    </style>
+</head>
+<body class="bg-neutral-700 flex justify-center items-center h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-md flex w-1/2">
+        <!-- kiri -->
+        <div class="w-1/2 pr-8">
+            <img src="develop.png" class="w-full h-auto mt-7">
+        </div>
+        <!-- kanan -->
+        <div class="w-1/2">
+            <img src="https://smktelkom-pwt.sch.id/wp-content/uploads/2018/10/logo-telkom-schools.png" class="w-25 h-14 mb-8 mx-auto">
+            <form>
+                <div class="mb-12 relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 40 40" fill="none">
+                            <path d="M10.7 12.3C10.7 16.435 14.065 19.8 18.2 19.8C22.335 19.8 25.7 16.435 25.7 12.3C25.7 8.16505 22.335 4.80005 18.2 4.80005C14.065 4.80005 10.7 8.16505 10.7 12.3ZM31.5333 36.4667H33.2V34.8C33.2 28.3684 27.965 23.1334 21.5333 23.1334H14.8666C8.43329 23.1334 3.19995 28.3684 3.19995 34.8V36.4667H31.5333Z" fill="#333333"/>
+                        </svg>
+                    </div>
+                    <input type="text" placeholder="Username" class="font-montserrat w-full px-12 py-2 border rounded-lg pl-14 bg-gray-200 shadow-md">
+                </div>
+                <div class="mb-12 relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 40 40" fill="none">
+                            <!-- ikon kunci kiri -->
+                            <path d="M19.9998 28.3334C20.8839 28.3334 21.7317 27.9822 22.3569 27.3571C22.982 26.732 23.3332 25.8841 23.3332 25.0001C23.3332 24.116 22.982 23.2682 22.3569 22.6431C21.7317 22.0179 20.8839 21.6667 19.9998 21.6667C19.1158 21.6667 18.2679 22.0179 17.6428 22.6431C17.0177 23.2682 16.6665 24.116 16.6665 25.0001C16.6665 25.8841 17.0177 26.732 17.6428 27.3571C18.2679 27.9822 19.1158 28.3334 19.9998 28.3334ZM29.9998 13.3334C30.8839 13.3334 31.7317 13.6846 32.3569 14.3097C32.982 14.9348 33.3332 15.7827 33.3332 16.6667V33.3334C33.3332 34.2175 32.982 35.0653 32.3569 35.6904C31.7317 36.3156 30.8839 36.6667 29.9998 36.6667H9.99984C9.11578 36.6667 8.26794 36.3156 7.64281 35.6904C7.01769 35.0653 6.6665 34.2175 6.6665 33.3334V16.6667C6.6665 15.7827 7.01769 14.9348 7.64281 14.3097C8.26794 13.6846 9.11578 13.3334 9.99984 13.3334H11.6665V10.0001C11.6665 7.78994 12.5445 5.67033 14.1073 4.10752C15.6701 2.54472 17.7897 1.66675 19.9998 1.66675C21.0942 1.66675 22.1778 1.88230 23.1889 2.30109C24.1999 2.71987 25.1186 3.33370 25.8924 4.10752C26.6662 4.88135 27.2800 5.80001 27.6988 6.81105C28.1176 7.82210 28.3332 8.90573 28.3332 10.0001V13.3334H29.9998ZM19.9998 5.00008C18.6738 5.00008 17.4020 5.52687 16.4643 6.46455C15.5266 7.40223 14.9998 8.67400 14.9998 10.0001V13.3334H24.9998V10.0001C24.9998 8.67400 24.4731 7.40223 23.5354 6.46455C22.5977 5.52687 21.3259 5.00008 19.9998 5.00008Z" fill="#333333"/>
+                        </svg>
+                    </div>
+                    <input type="password" id="password" placeholder="Password" class="font-montserrat w-full px-4 py-2 border rounded-lg pl-14 bg-gray-200 shadow-md">
+                    
+                </div>
+                <button type="submit" class="font-semibold font-montserrat bg-red-700 w-full text-white px-4 py-2 rounded-lg hover:bg-red-600">LOG IN</button>
+                <div id="login-success-popup" class="hidden fixed inset-0 justify-center items-start pt-48 bg-black bg-opacity-50">
+                    <div class="bg-white p-4 rounded-full shadow-md text-center animate__animated animate__slideInDown">
+                        <h2 class="text-2xl flex items-center font-montserrat text-black font-bold uppercase">
+                            <svg class="mr-2" width="50" height="50" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <rect width="90" height="90" fill="url(#pattern9)"/>
+                                <defs>
+                                  <pattern id="pattern9" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_304_1288" transform="scale(0.0111111)"/>
+                                  </pattern>
+                                  <image id="image0_304_1288" width="90" height="90" xlink:href="data:image/png;base64,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"/>
+                              </svg>
+                            Login Berhasil!</h2>
+                    </div>
+                </div>                
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const loginSuccessPopup = document.getElementById('login-success-popup');
+        function showPopup() {
+            loginSuccessPopup.style.display = 'flex';
+            loginSuccessPopup.classList.add('animate__fadeIn');
+        }
+        function hidePopup() {
+            loginSuccessPopup.style.display = 'none';
+            loginSuccessPopup.classList.remove('animate__fadeIn');
+        }
+        const loginButton = document.querySelector('button[type="submit"]');
+        loginButton.addEventListener('click', function (e) {
+            e.preventDefault();
+            showPopup();
+        });
+        loginSuccessPopup.addEventListener('click', function (e) {
+            if (e.target === loginSuccessPopup) {
+                hidePopup();
+            }
+        });
+    </script>
+    
+    
+    
+</body>
+</html>
