@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+    <script src="https://cdn.tailwindcss.com/3.3.0"></script>
+    <script>
+      tailwind.config = {
+          darkMode: "class",
+          theme: {
+              fontFamily: {
+                  montserrat: ["Montserrat Alternates"],
+              },
+          },
+          corePlugins: {
+              preflight: false,
+          },
+      };
+  </script>
+  <style>
+    html {
+        scroll-behavior: smooth;
+    }
+    @keyframes slideInFromTop {
+          0% {
+              transform: translateY(-50%);
+          }
+
+          100% {
+              transform: translateY(0);
+          }
+      }
+
+    @keyframes fadeOut {
+          0% {
+              opacity: 1;
+          }
+
+          100% {
+              opacity: 0;
+          }
+      }
+
+    .slide-in-from-top {
+        animation: slideInFromTop 0.5s ease-out;
+    }
+    .fade-out {
+            animation: fadeOut 0.5s ease-in;
+    }
+    #emailInput {
+      transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    }
+    #icon {
+      transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    }
+  </style>
+    <title>Landing baru</title>
+</head>
+<body>
+    <div>
+        <nav class="h-20 pl-4 pr-10 py-3 w-full flex justify-between bg-white text-white shadow-lg fixed top-0">
+            <div class="flex items-center px-12">
+              <a rel="noopener noreferrer" href="" class="flex justify-start">
+                <div class="flex items-center justify-center">
+                  <img
+                    class="h-10"
+                    src="https://smktelkom-pwt.sch.id/wp-content/uploads/2018/10/logo-telkom-schools.png"
+                    alt="logo"
+                  />
+                </div>
+              </a>
+            </div>
+            <div class="flex items-center">
+                <div class="px-12">
+                    <a rel="noopener noreferrer" href="" class="flex justify-start">
+                     <p class="text-black font-base hover:font-bold">HOME</p>
+                    </a>
+                  </div>
+                  <div class="px-12">
+                    <a rel="noopener noreferrer" href="#cara_isi_form" class="flex justify-start">
+                     <p class="text-black font-base hover:font-bold">CARA ISI FORMULIR</p>
+                    </a>
+                  </div>
+                  <div class="px-12">
+                    <a rel="noopener noreferrer" href="#jenis_pelanggaran" class="flex justify-start">
+                     <p class="text-black font-base hover:font-bold">JENIS PELANGGARAN</p>
+                    </a>
+                  </div>
+            </div>
+          </nav>
+          <main>
+            <div class="ml-20 mt-24 mr-20">
+                <div class="flex w-full h-[460px]">
+                  <div class="w-1/2 mt-8 ml-32">
+                    <div>
+                        <h1 class="font-bold text-black text-4xl mt-14 font-montserrat">SMK TELKOM BANJARBARU</h1>
+                        <h1 class="font-bold text-black text-4xl mt-1 font-montserrat">PERIZINAN & LAPORAN</h1>
+                        <h2 class="font-medium text-gray-500 text-2xl mt-4">KLIK TOMBOL UNTUK MELANJUTKAN</h2>
+                    </div>
+                    <div class="mt-8 flex items-center">
+                        <a href="#pilih_formulir"><button class="bg-red-700 text-white px-14 py-2 rounded-full hover:bg-red-600">FORMULIR</button></a>
+                        <a href="#cara_isi_form"><div class="flex items-center transition-transform duration-300 transform hover:translate-x-[-5px]">
+                            <h3 class="ml-14 mr-8 text-gray-800">CARA ISI FORM</h3>
+                            <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <mask id="mask0_898_782" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="17" height="16">
+                                <rect x="0.5" width="16" height="16" fill="#D9D9D9"/>
+                                </mask>
+                                <g mask="url(#mask0_898_782)">
+                                <path d="M5.84984 14.6668L4.6665 13.4835L10.1498 8.00016L4.6665 2.51683L5.84984 1.3335L12.5165 8.00016L5.84984 14.6668Z" fill="black"/>
+                                </g>
+                                </svg>                                
+                        </div></a>
+                    </div>
+                  </div>
+                  <div class="w-1/2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="213" height="190" viewBox="0 0 313 290" fill="none" class="ml-44 mt-20">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M156.519 0C187.91 0 213.357 24.3752 213.357 54.4434C213.357 84.5116 187.91 108.887 156.519 108.887C125.128 108.887 99.681 84.5116 99.681 54.4434C99.681 24.3752 125.128 0 156.519 0ZM61.5644 279.598C36.1685 261.925 30.5388 227.877 48.9899 203.552C67.441 179.226 102.986 173.833 128.382 191.507C153.778 209.18 159.407 243.228 140.957 267.554C122.505 291.88 86.9601 297.272 61.5644 279.598ZM264.233 203.552C282.684 227.877 277.055 261.925 251.659 279.598C226.263 297.272 190.717 291.88 172.267 267.554C153.816 243.228 159.445 209.18 184.841 191.507C210.237 173.833 245.782 179.226 264.233 203.552ZM2.79722 106.714C12.4975 78.1182 44.563 62.4684 74.4176 71.76C104.272 81.0516 120.61 111.766 110.91 140.363C101.21 168.959 69.1441 184.609 39.2896 175.317C9.43504 166.026 -6.90311 135.312 2.79722 106.714ZM238.582 71.76C268.438 62.4684 300.502 78.1182 310.203 106.714C319.903 135.312 303.565 166.026 273.711 175.317C243.855 184.609 211.791 168.959 202.09 140.363C192.39 111.766 208.728 81.0516 238.582 71.76Z" fill="#C2151A"/>
+                    </svg>
+                  </div>
+                </div>
+            </div>
+            <div id="button_to_bottom" class="flex items-center justify-center mt-16 transition-transform duration-300 transform hover:translate-y-[5px]">
+              <a href="#foto_telkom" class="text-center">
+                <svg width="40" height="40" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <mask id="mask0_897_1293" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="45" height="45">
+                  <rect width="45" height="45" fill="#D9D9D9"/>
+                  </mask>
+                  <g mask="url(#mask0_897_1293)">
+                  <path d="M23.25 29.562L12 18.5658L14.625 16L23.25 24.4304L31.875 16L34.5 18.5658L23.25 29.562Z" fill="#1C1B1F"/>
+                  </g>
+                  </svg>                  
+              </a>
+            </div>
+            <div id="foto_telkom" class="mt-32">
+              <img src="https://www.smktelkom-bjb.sch.id/web/assets/img/12042021040056fasilitas.jpg" class="w-full h-[600px]">
+            </div>
+            <div id="jenis_pelanggaran">
+              <div class="flex items-center justify-center mt-16">
+                <h2 class="uppercase font-base text-2xl font-semibold text-black">jenis pelanggaran di smk telkom banjarabru</h2>
+              </div>
+              <div class="flex justify-center mt-8 space-x-10">
+                <div class="text-center">
+                  <div class="w-32 h-32 bg-[#FFEAEA] rounded-full flex items-center justify-center">
+                    <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <mask id="mask0_897_1239" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="50" height="50">
+                      <rect width="50" height="50" fill="#D9D9D9"/>
+                      </mask>
+                      <g mask="url(#mask0_897_1239)">
+                      <path d="M24.791 28.1243L29.166 23.7493L33.541 28.1243L36.4577 25.2077L32.0827 20.8327L36.4577 16.4577L33.541 13.541L29.166 17.916L24.791 13.541L21.8743 16.4577L26.2493 20.8327L21.8743 25.2077L24.791 28.1243ZM16.666 37.4993C15.5202 37.4993 14.5393 37.0914 13.7233 36.2754C12.9073 35.4594 12.4993 34.4785 12.4993 33.3327V8.33268C12.4993 7.18685 12.9073 6.20595 13.7233 5.38997C14.5393 4.574 15.5202 4.16602 16.666 4.16602H41.666C42.8118 4.16602 43.7927 4.574 44.6087 5.38997C45.4247 6.20595 45.8327 7.18685 45.8327 8.33268V33.3327C45.8327 34.4785 45.4247 35.4594 44.6087 36.2754C43.7927 37.0914 42.8118 37.4993 41.666 37.4993H16.666ZM16.666 33.3327H41.666V8.33268H16.666V33.3327ZM8.33268 45.8327C7.18685 45.8327 6.20595 45.4247 5.38997 44.6087C4.574 43.7927 4.16602 42.8118 4.16602 41.666V12.4993H8.33268V41.666H37.4993V45.8327H8.33268Z" fill="#E42313"/>
+                      </g>
+                    </svg>                    
+                  </div>
+                  <p class="mt-3 uppercase text-black text-1xl font-normal font-base">peserta alpa</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-32 h-32 bg-[#FFEAEA] rounded-full flex items-center justify-center">
+                    <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <mask id="mask0_897_1243" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="50" height="50">
+                      <rect width="50" height="50" fill="#D9D9D9"/>
+                      </mask>
+                      <g mask="url(#mask0_897_1243)">
+                      <path d="M6.24984 41.6668C5.65956 41.6668 5.16477 41.4672 4.76546 41.0679C4.36616 40.6686 4.1665 40.1738 4.1665 39.5835C4.1665 39.2363 4.23595 38.9151 4.37484 38.62C4.51373 38.3248 4.72206 38.0904 4.99984 37.9168L22.9165 24.4793V20.8335C22.9165 20.2432 23.1248 19.7484 23.5415 19.3491C23.9582 18.9498 24.4616 18.7502 25.0519 18.7502C25.92 18.7502 26.6491 18.4377 27.2394 17.8127C27.8297 17.1877 28.1248 16.4411 28.1248 15.5731C28.1248 14.705 27.821 13.9759 27.2134 13.3856C26.6057 12.7953 25.8679 12.5002 24.9998 12.5002C24.1318 12.5002 23.3939 12.804 22.7863 13.4116C22.1787 14.0193 21.8748 14.7571 21.8748 15.6252H17.7082C17.7082 13.6113 18.42 11.8925 19.8436 10.4689C21.2672 9.0453 22.986 8.3335 24.9998 8.3335C27.0137 8.3335 28.7325 9.03662 30.1561 10.4429C31.5797 11.8491 32.2915 13.5592 32.2915 15.5731C32.2915 17.205 31.8141 18.6634 30.8592 19.9481C29.9044 21.2328 28.6457 22.1182 27.0832 22.6043V24.4793L44.9998 37.9168C45.2776 38.0904 45.486 38.3248 45.6248 38.62C45.7637 38.9151 45.8332 39.2363 45.8332 39.5835C45.8332 40.1738 45.6335 40.6686 45.2342 41.0679C44.8349 41.4672 44.3401 41.6668 43.7498 41.6668H6.24984ZM12.4998 37.5002H37.4998L24.9998 28.1252L12.4998 37.5002Z" fill="#E42313"/>
+                      </g>
+                      </svg>                    
+                  </div>
+                  <p class="mt-3 uppercase text-black text-1xl font-normal font-base w-32">pakaian tidak sesuai aturan sekolah</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-32 h-32 bg-[#FFEAEA] rounded-full flex items-center justify-center">
+                    <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <mask id="mask0_897_1247" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="50" height="50">
+                      <rect width="50" height="50" fill="#D9D9D9"/>
+                      </mask>
+                      <g mask="url(#mask0_897_1247)">
+                      <path d="M41.6668 22.9167C41.0766 22.9167 40.5818 22.717 40.1825 22.3177C39.7832 21.9184 39.5835 21.4236 39.5835 20.8333C39.5835 20.2431 39.7832 19.7483 40.1825 19.349C40.5818 18.9497 41.0766 18.75 41.6668 18.75C42.2571 18.75 42.7519 18.9497 43.1512 19.349C43.5505 19.7483 43.7502 20.2431 43.7502 20.8333C43.7502 21.4236 43.5505 21.9184 43.1512 22.3177C42.7519 22.717 42.2571 22.9167 41.6668 22.9167ZM39.5835 16.6667V6.25H43.7502V16.6667H39.5835ZM18.7502 25C16.4585 25 14.4967 24.184 12.8647 22.5521C11.2328 20.9201 10.4168 18.9583 10.4168 16.6667C10.4168 14.375 11.2328 12.4132 12.8647 10.7813C14.4967 9.14931 16.4585 8.33333 18.7502 8.33333C21.0418 8.33333 23.0036 9.14931 24.6356 10.7813C26.2675 12.4132 27.0835 14.375 27.0835 16.6667C27.0835 18.9583 26.2675 20.9201 24.6356 22.5521C23.0036 24.184 21.0418 25 18.7502 25ZM2.0835 41.6667V35.8333C2.0835 34.6528 2.38732 33.5677 2.99495 32.5781C3.60259 31.5885 4.40989 30.8333 5.41683 30.3125C7.56961 29.2361 9.75711 28.4288 11.9793 27.8906C14.2016 27.3524 16.4585 27.0833 18.7502 27.0833C21.0418 27.0833 23.2988 27.3524 25.521 27.8906C27.7432 28.4288 29.9307 29.2361 32.0835 30.3125C33.0904 30.8333 33.8977 31.5885 34.5054 32.5781C35.113 33.5677 35.4168 34.6528 35.4168 35.8333V41.6667H2.0835ZM6.25016 37.5H31.2502V35.8333C31.2502 35.4514 31.1547 35.1042 30.9637 34.7917C30.7727 34.4792 30.521 34.2361 30.2085 34.0625C28.3335 33.125 26.4411 32.4219 24.5314 31.9531C22.6217 31.4844 20.6946 31.25 18.7502 31.25C16.8057 31.25 14.8786 31.4844 12.9689 31.9531C11.0592 32.4219 9.16683 33.125 7.29183 34.0625C6.97933 34.2361 6.72759 34.4792 6.53662 34.7917C6.34565 35.1042 6.25016 35.4514 6.25016 35.8333V37.5ZM18.7502 20.8333C19.896 20.8333 20.8769 20.4253 21.6929 19.6094C22.5088 18.7934 22.9168 17.8125 22.9168 16.6667C22.9168 15.5208 22.5088 14.5399 21.6929 13.724C20.8769 12.908 19.896 12.5 18.7502 12.5C17.6043 12.5 16.6234 12.908 15.8075 13.724C14.9915 14.5399 14.5835 15.5208 14.5835 16.6667C14.5835 17.8125 14.9915 18.7934 15.8075 19.6094C16.6234 20.4253 17.6043 20.8333 18.7502 20.8333Z" fill="#E42313"/>
+                      </g>
+                      </svg>                    
+                  </div>
+                  <p class="mt-3 uppercase text-black text-1xl font-normal font-base w-32">merusak nama baik sekolah</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-32 h-32 bg-[#FFEAEA] rounded-full flex items-center justify-center">
+                    <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <mask id="mask0_897_1251" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="50" height="50">
+                      <rect width="50" height="50" fill="#D9D9D9"/>
+                      </mask>
+                      <g mask="url(#mask0_897_1251)">
+                      <path d="M4.1665 45.8333V41.6667C5.76373 41.6667 7.34359 41.5625 8.90609 41.3542C10.4686 41.1458 11.9964 40.7639 13.4894 40.2083C11.8922 39.4097 10.6335 38.2552 9.71338 36.7448C8.79324 35.2344 8.33317 33.5938 8.33317 31.8229V27.0833H16.6665V20.8333H23.6978L16.8748 7.1875L20.6248 5.3125L27.4478 18.9583C28.1422 20.3472 28.0901 21.7014 27.2915 23.0208C26.4929 24.3403 25.3123 25 23.7498 25H20.8332V27.0833C20.8332 28.2292 20.4252 29.2101 19.6092 30.026C18.7932 30.842 17.8123 31.25 16.6665 31.25H12.4998V31.8229C12.4998 33.0382 12.8731 34.1059 13.6196 35.026C14.3662 35.9462 15.3123 36.5625 16.4582 36.875L17.0832 37.0313C18.4721 37.3785 19.2533 38.2465 19.4269 39.6354C19.6005 41.0243 19.0623 42.066 17.8123 42.7604C15.729 43.9063 13.5328 44.7049 11.2238 45.1563C8.91477 45.6076 6.56234 45.8333 4.1665 45.8333ZM33.9582 39.8958L30.9894 36.9792C31.7186 36.25 32.2915 35.408 32.7082 34.4531C33.1248 33.4983 33.3332 32.4653 33.3332 31.3542C33.3332 30.2431 33.1248 29.2101 32.7082 28.2552C32.2915 27.3003 31.7186 26.4583 30.9894 25.7292L33.9582 22.7604C35.0693 23.8715 35.9373 25.1649 36.5623 26.6406C37.1873 28.1163 37.4998 29.6875 37.4998 31.3542C37.4998 33.0208 37.1873 34.5833 36.5623 36.0417C35.9373 37.5 35.0693 38.7847 33.9582 39.8958ZM39.8436 45.8333L36.8748 42.8646C38.3679 41.3715 39.5398 39.6441 40.3905 37.6823C41.2412 35.7205 41.6665 33.6111 41.6665 31.3542C41.6665 29.0625 41.2412 26.9444 40.3905 25C39.5398 23.0556 38.3679 21.3368 36.8748 19.8438L39.8436 16.875C41.7186 18.75 43.1856 20.9201 44.2446 23.3854C45.3037 25.8507 45.8332 28.5069 45.8332 31.3542C45.8332 34.1667 45.3037 36.8142 44.2446 39.2969C43.1856 41.7795 41.7186 43.9583 39.8436 45.8333Z" fill="#E42313"/>
+                      </g>
+                      </svg>                    
+                  </div>
+                  <p class="mt-3 uppercase text-black text-1xl font-normal font-base w-32">bullying</p>
+                </div>
+              </div>
+              <div class="flex justify-center mt-8 space-x-10">
+                <div class="text-center">
+                  <div class="w-32 h-32 bg-[#FFEAEA] rounded-full flex items-center justify-center">
+                    <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <mask id="mask0_897_1239" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="50" height="50">
+                      <rect width="50" height="50" fill="#D9D9D9"/>
+                      </mask>
+                      <g mask="url(#mask0_897_1239)">
+                      <path d="M24.791 28.1243L29.166 23.7493L33.541 28.1243L36.4577 25.2077L32.0827 20.8327L36.4577 16.4577L33.541 13.541L29.166 17.916L24.791 13.541L21.8743 16.4577L26.2493 20.8327L21.8743 25.2077L24.791 28.1243ZM16.666 37.4993C15.5202 37.4993 14.5393 37.0914 13.7233 36.2754C12.9073 35.4594 12.4993 34.4785 12.4993 33.3327V8.33268C12.4993 7.18685 12.9073 6.20595 13.7233 5.38997C14.5393 4.574 15.5202 4.16602 16.666 4.16602H41.666C42.8118 4.16602 43.7927 4.574 44.6087 5.38997C45.4247 6.20595 45.8327 7.18685 45.8327 8.33268V33.3327C45.8327 34.4785 45.4247 35.4594 44.6087 36.2754C43.7927 37.0914 42.8118 37.4993 41.666 37.4993H16.666ZM16.666 33.3327H41.666V8.33268H16.666V33.3327ZM8.33268 45.8327C7.18685 45.8327 6.20595 45.4247 5.38997 44.6087C4.574 43.7927 4.16602 42.8118 4.16602 41.666V12.4993H8.33268V41.666H37.4993V45.8327H8.33268Z" fill="#E42313"/>
+                      </g>
+                    </svg>                    
+                  </div>
+                  <p class="mt-3 uppercase text-black text-1xl font-normal font-base">peserta alpa</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-32 h-32 bg-[#FFEAEA] rounded-full flex items-center justify-center">
+                    <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <mask id="mask0_897_1243" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="50" height="50">
+                      <rect width="50" height="50" fill="#D9D9D9"/>
+                      </mask>
+                      <g mask="url(#mask0_897_1243)">
+                      <path d="M6.24984 41.6668C5.65956 41.6668 5.16477 41.4672 4.76546 41.0679C4.36616 40.6686 4.1665 40.1738 4.1665 39.5835C4.1665 39.2363 4.23595 38.9151 4.37484 38.62C4.51373 38.3248 4.72206 38.0904 4.99984 37.9168L22.9165 24.4793V20.8335C22.9165 20.2432 23.1248 19.7484 23.5415 19.3491C23.9582 18.9498 24.4616 18.7502 25.0519 18.7502C25.92 18.7502 26.6491 18.4377 27.2394 17.8127C27.8297 17.1877 28.1248 16.4411 28.1248 15.5731C28.1248 14.705 27.821 13.9759 27.2134 13.3856C26.6057 12.7953 25.8679 12.5002 24.9998 12.5002C24.1318 12.5002 23.3939 12.804 22.7863 13.4116C22.1787 14.0193 21.8748 14.7571 21.8748 15.6252H17.7082C17.7082 13.6113 18.42 11.8925 19.8436 10.4689C21.2672 9.0453 22.986 8.3335 24.9998 8.3335C27.0137 8.3335 28.7325 9.03662 30.1561 10.4429C31.5797 11.8491 32.2915 13.5592 32.2915 15.5731C32.2915 17.205 31.8141 18.6634 30.8592 19.9481C29.9044 21.2328 28.6457 22.1182 27.0832 22.6043V24.4793L44.9998 37.9168C45.2776 38.0904 45.486 38.3248 45.6248 38.62C45.7637 38.9151 45.8332 39.2363 45.8332 39.5835C45.8332 40.1738 45.6335 40.6686 45.2342 41.0679C44.8349 41.4672 44.3401 41.6668 43.7498 41.6668H6.24984ZM12.4998 37.5002H37.4998L24.9998 28.1252L12.4998 37.5002Z" fill="#E42313"/>
+                      </g>
+                      </svg>                    
+                  </div>
+                  <p class="mt-3 uppercase text-black text-1xl font-normal font-base w-32">pakaian tidak sesuai aturan sekolah</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-32 h-32 bg-[#FFEAEA] rounded-full flex items-center justify-center">
+                    <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <mask id="mask0_897_1247" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="50" height="50">
+                      <rect width="50" height="50" fill="#D9D9D9"/>
+                      </mask>
+                      <g mask="url(#mask0_897_1247)">
+                      <path d="M41.6668 22.9167C41.0766 22.9167 40.5818 22.717 40.1825 22.3177C39.7832 21.9184 39.5835 21.4236 39.5835 20.8333C39.5835 20.2431 39.7832 19.7483 40.1825 19.349C40.5818 18.9497 41.0766 18.75 41.6668 18.75C42.2571 18.75 42.7519 18.9497 43.1512 19.349C43.5505 19.7483 43.7502 20.2431 43.7502 20.8333C43.7502 21.4236 43.5505 21.9184 43.1512 22.3177C42.7519 22.717 42.2571 22.9167 41.6668 22.9167ZM39.5835 16.6667V6.25H43.7502V16.6667H39.5835ZM18.7502 25C16.4585 25 14.4967 24.184 12.8647 22.5521C11.2328 20.9201 10.4168 18.9583 10.4168 16.6667C10.4168 14.375 11.2328 12.4132 12.8647 10.7813C14.4967 9.14931 16.4585 8.33333 18.7502 8.33333C21.0418 8.33333 23.0036 9.14931 24.6356 10.7813C26.2675 12.4132 27.0835 14.375 27.0835 16.6667C27.0835 18.9583 26.2675 20.9201 24.6356 22.5521C23.0036 24.184 21.0418 25 18.7502 25ZM2.0835 41.6667V35.8333C2.0835 34.6528 2.38732 33.5677 2.99495 32.5781C3.60259 31.5885 4.40989 30.8333 5.41683 30.3125C7.56961 29.2361 9.75711 28.4288 11.9793 27.8906C14.2016 27.3524 16.4585 27.0833 18.7502 27.0833C21.0418 27.0833 23.2988 27.3524 25.521 27.8906C27.7432 28.4288 29.9307 29.2361 32.0835 30.3125C33.0904 30.8333 33.8977 31.5885 34.5054 32.5781C35.113 33.5677 35.4168 34.6528 35.4168 35.8333V41.6667H2.0835ZM6.25016 37.5H31.2502V35.8333C31.2502 35.4514 31.1547 35.1042 30.9637 34.7917C30.7727 34.4792 30.521 34.2361 30.2085 34.0625C28.3335 33.125 26.4411 32.4219 24.5314 31.9531C22.6217 31.4844 20.6946 31.25 18.7502 31.25C16.8057 31.25 14.8786 31.4844 12.9689 31.9531C11.0592 32.4219 9.16683 33.125 7.29183 34.0625C6.97933 34.2361 6.72759 34.4792 6.53662 34.7917C6.34565 35.1042 6.25016 35.4514 6.25016 35.8333V37.5ZM18.7502 20.8333C19.896 20.8333 20.8769 20.4253 21.6929 19.6094C22.5088 18.7934 22.9168 17.8125 22.9168 16.6667C22.9168 15.5208 22.5088 14.5399 21.6929 13.724C20.8769 12.908 19.896 12.5 18.7502 12.5C17.6043 12.5 16.6234 12.908 15.8075 13.724C14.9915 14.5399 14.5835 15.5208 14.5835 16.6667C14.5835 17.8125 14.9915 18.7934 15.8075 19.6094C16.6234 20.4253 17.6043 20.8333 18.7502 20.8333Z" fill="#E42313"/>
+                      </g>
+                      </svg>                    
+                  </div>
+                  <p class="mt-3 uppercase text-black text-1xl font-normal font-base w-32">merusak nama baik sekolah</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-32 h-32 bg-[#FFEAEA] rounded-full flex items-center justify-center">
+                    <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <mask id="mask0_897_1251" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="50" height="50">
+                      <rect width="50" height="50" fill="#D9D9D9"/>
+                      </mask>
+                      <g mask="url(#mask0_897_1251)">
+                      <path d="M4.1665 45.8333V41.6667C5.76373 41.6667 7.34359 41.5625 8.90609 41.3542C10.4686 41.1458 11.9964 40.7639 13.4894 40.2083C11.8922 39.4097 10.6335 38.2552 9.71338 36.7448C8.79324 35.2344 8.33317 33.5938 8.33317 31.8229V27.0833H16.6665V20.8333H23.6978L16.8748 7.1875L20.6248 5.3125L27.4478 18.9583C28.1422 20.3472 28.0901 21.7014 27.2915 23.0208C26.4929 24.3403 25.3123 25 23.7498 25H20.8332V27.0833C20.8332 28.2292 20.4252 29.2101 19.6092 30.026C18.7932 30.842 17.8123 31.25 16.6665 31.25H12.4998V31.8229C12.4998 33.0382 12.8731 34.1059 13.6196 35.026C14.3662 35.9462 15.3123 36.5625 16.4582 36.875L17.0832 37.0313C18.4721 37.3785 19.2533 38.2465 19.4269 39.6354C19.6005 41.0243 19.0623 42.066 17.8123 42.7604C15.729 43.9063 13.5328 44.7049 11.2238 45.1563C8.91477 45.6076 6.56234 45.8333 4.1665 45.8333ZM33.9582 39.8958L30.9894 36.9792C31.7186 36.25 32.2915 35.408 32.7082 34.4531C33.1248 33.4983 33.3332 32.4653 33.3332 31.3542C33.3332 30.2431 33.1248 29.2101 32.7082 28.2552C32.2915 27.3003 31.7186 26.4583 30.9894 25.7292L33.9582 22.7604C35.0693 23.8715 35.9373 25.1649 36.5623 26.6406C37.1873 28.1163 37.4998 29.6875 37.4998 31.3542C37.4998 33.0208 37.1873 34.5833 36.5623 36.0417C35.9373 37.5 35.0693 38.7847 33.9582 39.8958ZM39.8436 45.8333L36.8748 42.8646C38.3679 41.3715 39.5398 39.6441 40.3905 37.6823C41.2412 35.7205 41.6665 33.6111 41.6665 31.3542C41.6665 29.0625 41.2412 26.9444 40.3905 25C39.5398 23.0556 38.3679 21.3368 36.8748 19.8438L39.8436 16.875C41.7186 18.75 43.1856 20.9201 44.2446 23.3854C45.3037 25.8507 45.8332 28.5069 45.8332 31.3542C45.8332 34.1667 45.3037 36.8142 44.2446 39.2969C43.1856 41.7795 41.7186 43.9583 39.8436 45.8333Z" fill="#E42313"/>
+                      </g>
+                      </svg>                    
+                  </div>
+                  <p class="mt-3 uppercase text-black text-1xl font-normal font-base w-32">bullying</p>
+                </div>
+              </div>
+              <div class="flex justify-center mt-8 space-x-10">
+                <div class="text-center">
+                  <div class="w-32 h-32 bg-[#FFEAEA] rounded-full flex items-center justify-center">
+                    <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <mask id="mask0_897_1239" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="50" height="50">
+                      <rect width="50" height="50" fill="#D9D9D9"/>
+                      </mask>
+                      <g mask="url(#mask0_897_1239)">
+                      <path d="M24.791 28.1243L29.166 23.7493L33.541 28.1243L36.4577 25.2077L32.0827 20.8327L36.4577 16.4577L33.541 13.541L29.166 17.916L24.791 13.541L21.8743 16.4577L26.2493 20.8327L21.8743 25.2077L24.791 28.1243ZM16.666 37.4993C15.5202 37.4993 14.5393 37.0914 13.7233 36.2754C12.9073 35.4594 12.4993 34.4785 12.4993 33.3327V8.33268C12.4993 7.18685 12.9073 6.20595 13.7233 5.38997C14.5393 4.574 15.5202 4.16602 16.666 4.16602H41.666C42.8118 4.16602 43.7927 4.574 44.6087 5.38997C45.4247 6.20595 45.8327 7.18685 45.8327 8.33268V33.3327C45.8327 34.4785 45.4247 35.4594 44.6087 36.2754C43.7927 37.0914 42.8118 37.4993 41.666 37.4993H16.666ZM16.666 33.3327H41.666V8.33268H16.666V33.3327ZM8.33268 45.8327C7.18685 45.8327 6.20595 45.4247 5.38997 44.6087C4.574 43.7927 4.16602 42.8118 4.16602 41.666V12.4993H8.33268V41.666H37.4993V45.8327H8.33268Z" fill="#E42313"/>
+                      </g>
+                    </svg>                    
+                  </div>
+                  <p class="mt-3 uppercase text-black text-1xl font-normal font-base">peserta alpa</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-32 h-32 bg-[#FFEAEA] rounded-full flex items-center justify-center">
+                    <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <mask id="mask0_897_1243" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="50" height="50">
+                      <rect width="50" height="50" fill="#D9D9D9"/>
+                      </mask>
+                      <g mask="url(#mask0_897_1243)">
+                      <path d="M6.24984 41.6668C5.65956 41.6668 5.16477 41.4672 4.76546 41.0679C4.36616 40.6686 4.1665 40.1738 4.1665 39.5835C4.1665 39.2363 4.23595 38.9151 4.37484 38.62C4.51373 38.3248 4.72206 38.0904 4.99984 37.9168L22.9165 24.4793V20.8335C22.9165 20.2432 23.1248 19.7484 23.5415 19.3491C23.9582 18.9498 24.4616 18.7502 25.0519 18.7502C25.92 18.7502 26.6491 18.4377 27.2394 17.8127C27.8297 17.1877 28.1248 16.4411 28.1248 15.5731C28.1248 14.705 27.821 13.9759 27.2134 13.3856C26.6057 12.7953 25.8679 12.5002 24.9998 12.5002C24.1318 12.5002 23.3939 12.804 22.7863 13.4116C22.1787 14.0193 21.8748 14.7571 21.8748 15.6252H17.7082C17.7082 13.6113 18.42 11.8925 19.8436 10.4689C21.2672 9.0453 22.986 8.3335 24.9998 8.3335C27.0137 8.3335 28.7325 9.03662 30.1561 10.4429C31.5797 11.8491 32.2915 13.5592 32.2915 15.5731C32.2915 17.205 31.8141 18.6634 30.8592 19.9481C29.9044 21.2328 28.6457 22.1182 27.0832 22.6043V24.4793L44.9998 37.9168C45.2776 38.0904 45.486 38.3248 45.6248 38.62C45.7637 38.9151 45.8332 39.2363 45.8332 39.5835C45.8332 40.1738 45.6335 40.6686 45.2342 41.0679C44.8349 41.4672 44.3401 41.6668 43.7498 41.6668H6.24984ZM12.4998 37.5002H37.4998L24.9998 28.1252L12.4998 37.5002Z" fill="#E42313"/>
+                      </g>
+                      </svg>                    
+                  </div>
+                  <p class="mt-3 uppercase text-black text-1xl font-normal font-base w-32">pakaian tidak sesuai aturan sekolah</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-32 h-32 bg-[#FFEAEA] rounded-full flex items-center justify-center">
+                    <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <mask id="mask0_897_1247" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="50" height="50">
+                      <rect width="50" height="50" fill="#D9D9D9"/>
+                      </mask>
+                      <g mask="url(#mask0_897_1247)">
+                      <path d="M41.6668 22.9167C41.0766 22.9167 40.5818 22.717 40.1825 22.3177C39.7832 21.9184 39.5835 21.4236 39.5835 20.8333C39.5835 20.2431 39.7832 19.7483 40.1825 19.349C40.5818 18.9497 41.0766 18.75 41.6668 18.75C42.2571 18.75 42.7519 18.9497 43.1512 19.349C43.5505 19.7483 43.7502 20.2431 43.7502 20.8333C43.7502 21.4236 43.5505 21.9184 43.1512 22.3177C42.7519 22.717 42.2571 22.9167 41.6668 22.9167ZM39.5835 16.6667V6.25H43.7502V16.6667H39.5835ZM18.7502 25C16.4585 25 14.4967 24.184 12.8647 22.5521C11.2328 20.9201 10.4168 18.9583 10.4168 16.6667C10.4168 14.375 11.2328 12.4132 12.8647 10.7813C14.4967 9.14931 16.4585 8.33333 18.7502 8.33333C21.0418 8.33333 23.0036 9.14931 24.6356 10.7813C26.2675 12.4132 27.0835 14.375 27.0835 16.6667C27.0835 18.9583 26.2675 20.9201 24.6356 22.5521C23.0036 24.184 21.0418 25 18.7502 25ZM2.0835 41.6667V35.8333C2.0835 34.6528 2.38732 33.5677 2.99495 32.5781C3.60259 31.5885 4.40989 30.8333 5.41683 30.3125C7.56961 29.2361 9.75711 28.4288 11.9793 27.8906C14.2016 27.3524 16.4585 27.0833 18.7502 27.0833C21.0418 27.0833 23.2988 27.3524 25.521 27.8906C27.7432 28.4288 29.9307 29.2361 32.0835 30.3125C33.0904 30.8333 33.8977 31.5885 34.5054 32.5781C35.113 33.5677 35.4168 34.6528 35.4168 35.8333V41.6667H2.0835ZM6.25016 37.5H31.2502V35.8333C31.2502 35.4514 31.1547 35.1042 30.9637 34.7917C30.7727 34.4792 30.521 34.2361 30.2085 34.0625C28.3335 33.125 26.4411 32.4219 24.5314 31.9531C22.6217 31.4844 20.6946 31.25 18.7502 31.25C16.8057 31.25 14.8786 31.4844 12.9689 31.9531C11.0592 32.4219 9.16683 33.125 7.29183 34.0625C6.97933 34.2361 6.72759 34.4792 6.53662 34.7917C6.34565 35.1042 6.25016 35.4514 6.25016 35.8333V37.5ZM18.7502 20.8333C19.896 20.8333 20.8769 20.4253 21.6929 19.6094C22.5088 18.7934 22.9168 17.8125 22.9168 16.6667C22.9168 15.5208 22.5088 14.5399 21.6929 13.724C20.8769 12.908 19.896 12.5 18.7502 12.5C17.6043 12.5 16.6234 12.908 15.8075 13.724C14.9915 14.5399 14.5835 15.5208 14.5835 16.6667C14.5835 17.8125 14.9915 18.7934 15.8075 19.6094C16.6234 20.4253 17.6043 20.8333 18.7502 20.8333Z" fill="#E42313"/>
+                      </g>
+                      </svg>                    
+                  </div>
+                  <p class="mt-3 uppercase text-black text-1xl font-normal font-base w-32">merusak nama baik sekolah</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-32 h-32 bg-[#FFEAEA] rounded-full flex items-center justify-center">
+                    <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <mask id="mask0_897_1251" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="50" height="50">
+                      <rect width="50" height="50" fill="#D9D9D9"/>
+                      </mask>
+                      <g mask="url(#mask0_897_1251)">
+                      <path d="M4.1665 45.8333V41.6667C5.76373 41.6667 7.34359 41.5625 8.90609 41.3542C10.4686 41.1458 11.9964 40.7639 13.4894 40.2083C11.8922 39.4097 10.6335 38.2552 9.71338 36.7448C8.79324 35.2344 8.33317 33.5938 8.33317 31.8229V27.0833H16.6665V20.8333H23.6978L16.8748 7.1875L20.6248 5.3125L27.4478 18.9583C28.1422 20.3472 28.0901 21.7014 27.2915 23.0208C26.4929 24.3403 25.3123 25 23.7498 25H20.8332V27.0833C20.8332 28.2292 20.4252 29.2101 19.6092 30.026C18.7932 30.842 17.8123 31.25 16.6665 31.25H12.4998V31.8229C12.4998 33.0382 12.8731 34.1059 13.6196 35.026C14.3662 35.9462 15.3123 36.5625 16.4582 36.875L17.0832 37.0313C18.4721 37.3785 19.2533 38.2465 19.4269 39.6354C19.6005 41.0243 19.0623 42.066 17.8123 42.7604C15.729 43.9063 13.5328 44.7049 11.2238 45.1563C8.91477 45.6076 6.56234 45.8333 4.1665 45.8333ZM33.9582 39.8958L30.9894 36.9792C31.7186 36.25 32.2915 35.408 32.7082 34.4531C33.1248 33.4983 33.3332 32.4653 33.3332 31.3542C33.3332 30.2431 33.1248 29.2101 32.7082 28.2552C32.2915 27.3003 31.7186 26.4583 30.9894 25.7292L33.9582 22.7604C35.0693 23.8715 35.9373 25.1649 36.5623 26.6406C37.1873 28.1163 37.4998 29.6875 37.4998 31.3542C37.4998 33.0208 37.1873 34.5833 36.5623 36.0417C35.9373 37.5 35.0693 38.7847 33.9582 39.8958ZM39.8436 45.8333L36.8748 42.8646C38.3679 41.3715 39.5398 39.6441 40.3905 37.6823C41.2412 35.7205 41.6665 33.6111 41.6665 31.3542C41.6665 29.0625 41.2412 26.9444 40.3905 25C39.5398 23.0556 38.3679 21.3368 36.8748 19.8438L39.8436 16.875C41.7186 18.75 43.1856 20.9201 44.2446 23.3854C45.3037 25.8507 45.8332 28.5069 45.8332 31.3542C45.8332 34.1667 45.3037 36.8142 44.2446 39.2969C43.1856 41.7795 41.7186 43.9583 39.8436 45.8333Z" fill="#E42313"/>
+                      </g>
+                      </svg>                    
+                  </div>
+                  <p class="mt-3 uppercase text-black text-1xl font-normal font-base w-32">bullying</p>
+                </div>
+              </div>
+              <div class="flex items-center justify-center mt-16">
+                <p class="font-base text-black font-semibold text-1xl uppercase text-center">baca selengkapnya</p>
+                <a href="https://drive.google.com/file/d/1Jj9TC-D1MJWu-hyjv8la4I6ieaBU10kZ/view">
+                  <p class="font-base text-red-600 font-semibold text-1xl uppercase text-center ml-2 transition-transform duration-800 transform hover:text-sm hover:text-red-800">sanksi dan point</p>
+                </a>
+              </div>
+            </div>
+            <div class="bg-red-700 w-full h-[200px] mt-16"></div>
+            <div id="cara_isi_form">
+              <div class="flex items-center justify-center mt-24">
+                <h2 class="uppercase font-base text-2xl font-semibold text-black">cara pengisian formulir perizinan & laporan</h2>
+              </div>
+              <div class="flex items-center justify-center mt-2">
+                <h2 class="uppercase font-base text-2xl font-semibold text-gray-500">isi formulir data anda dengan tepat</h2>
+              </div>
+              <div class="flex flex-col items-center justify-center">
+                <form action="" class="w-full md:w-1/3 px-16 py-10">
+                  <label for="" class="uppercase text-black font-bold text-sm font-montserrat">nama lengkap</label><br>
+                  <input type="text" class="w-full bg-neutral-100 px-3 py-4 rounded-lg my-4 placeholder-gray-500 placeholder:uppercase placeholder:font-semibold" placeholder="contoh : siswa"><br>
+                  <label for="" class="uppercase text-black font-bold text-sm font-montserrat">nis</label><br>
+                  <input type="text" class="w-full bg-neutral-100 px-3 py-4 rounded-lg my-4 placeholder-gray-500 placeholder:uppercase placeholder:font-semibold" placeholder="contoh : 543211223"><br>
+                  <label for="" class="uppercase text-black font-bold text-sm font-montserrat">kelas</label><br>
+                  <input type="text" class="w-full bg-neutral-100 px-3 py-4 rounded-lg my-4 placeholder-gray-500 placeholder:uppercase placeholder:font-semibold" placeholder="contoh : xi e rpl"><br>
+                  <label for="" class="uppercase text-black font-bold text-sm font-montserrat">alasan/jenis pelanggaran</label><br>
+                  <input type="text" class="w-full bg-neutral-100 px-3 py-4 rounded-lg mt-4 placeholder-gray-500 placeholder:uppercase placeholder:font-semibold" placeholder="terlambat karena ban bocor"><br>
+                  <div class="flex items-center justify-center mt-6">
+                    <h2 class="uppercase font-base font-semibold text-gray-500">lalu kirim</h2>
+                  </div>
+                  <button class="bg-red-700 text-white px-48 py-2 rounded-full hover:bg-red-600 mt-6 hidden">KIRIM</button>
+                </form>
+              </div>
+              <div id="pilih_formulir">
+                <div class="flex items-center justify-center mt-64 text-center">
+                  <h2 class="uppercase font-montserrat text-2xl font-bold text-black">pilih formulir sesuai kebutuhan anda</h2>
+                </div>
+                <div class="flex items-center justify-center">
+                  <button class="bg-red-700 text-white w-[600px] px-4 py-2 rounded-full hover:bg-red-600 mt-6" onclick="openForm('modulTerlambatPelanggaran')">TERLAMBAT & PELANGGAR</button>
+                </div>
+                <div class="flex items-center justify-center">
+                  <button class="bg-red-700 text-white w-[600px] px-4 py-2 rounded-full hover:bg-red-600 mt-6">KELUAR</button>
+                </div>
+                <div class="flex items-center justify-center mt-20">
+                  <h2 class="uppercase font-montserrat text-1xl font-bold text-gray-500">butuh bantuan?</h2>
+                  <a href="#cara_isi_form"><h2 class="uppercase font-montserrat text-1xl font-bold text-red-600 ml-4 transition-transform duration-800 transform hover:text-sm hover:text-red-800">cara isi form</h2></a>
+                </div>
+              </div>
+              <div id="modulTerlambatPelanggaran" class="opacity-0 pointer-events-none fixed top-0 left-0 w-full h-full bg-neutral-300 bg-opacity-10 flex items-center justify-center">
+                <form action="" class="w-full md:w-1/3 bg-white rounded-lg shadow-lg px-16 py-10 slide-in-from-top">
+
+                  <div onclick="closeForm('modulTerlambatPelanggaran')"><svg width="40" height="40" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" class="ml-[-60px] mt-[-40px]">
+                  <path d="M20.3263 20.3263C20.5295 20.1225 20.7708 19.9609 21.0366 19.8506C21.3024 19.7404 21.5873 19.6836 21.875 19.6836C22.1627 19.6836 22.4476 19.7404 22.7134 19.8506C22.9792 19.9609 23.2206 20.1225 23.4238 20.3263L35 31.9069L46.5763 20.3263C46.7796 20.1229 47.0211 19.9615 47.2868 19.8515C47.5526 19.7414 47.8374 19.6847 48.125 19.6847C48.4126 19.6847 48.6974 19.7414 48.9632 19.8515C49.2289 19.9615 49.4704 20.1229 49.6738 20.3263C49.8771 20.5296 50.0385 20.7711 50.1485 21.0368C50.2586 21.3026 50.3153 21.5874 50.3153 21.875C50.3153 22.1626 50.2586 22.4474 50.1485 22.7132C50.0385 22.9789 49.8771 23.2204 49.6738 23.4238L38.0931 35L49.6738 46.5763C49.8771 46.7796 50.0385 47.0211 50.1485 47.2868C50.2586 47.5526 50.3153 47.8374 50.3153 48.125C50.3153 48.4126 50.2586 48.6974 50.1485 48.9632C50.0385 49.2289 49.8771 49.4704 49.6738 49.6738C49.4704 49.8771 49.2289 50.0385 48.9632 50.1485C48.6974 50.2586 48.4126 50.3153 48.125 50.3153C47.8374 50.3153 47.5526 50.2586 47.2868 50.1485C47.0211 50.0385 46.7796 49.8771 46.5763 49.6738L35 38.0931L23.4238 49.6738C23.2204 49.8771 22.9789 50.0385 22.7132 50.1485C22.4474 50.2586 22.1626 50.3153 21.875 50.3153C21.5874 50.3153 21.3026 50.2586 21.0368 50.1485C20.7711 50.0385 20.5296 49.8771 20.3263 49.6738C20.1229 49.4704 19.9615 49.2289 19.8515 48.9632C19.7414 48.6974 19.6847 48.4126 19.6847 48.125C19.6847 47.8374 19.7414 47.5526 19.8515 47.2868C19.9615 47.0211 20.1229 46.7796 20.3263 46.5763L31.9069 35L20.3263 23.4238C20.1225 23.2206 19.9609 22.9792 19.8506 22.7134C19.7404 22.4476 19.6836 22.1627 19.6836 21.875C19.6836 21.5873 19.7404 21.3024 19.8506 21.0366C19.9609 20.7708 20.1225 20.5295 20.3263 20.3263Z" fill="black"/>
+                  </svg></div>
+          
+                  <h2 class="uppercase font-black text-center mb-4 text-black text-lg">form</h2>
+          
+                  <div class="w-full">
+          
+                    <label for="nis" class="uppercase text-gray-500 font-semibold text-sm">nis</label><br>
+                    <input type="text" id="nis" class="w-full bg-neutral-200 px-4 py-2 rounded-lg shadow-md my-3" oninput="showDetails()"><br>
+                    <label for="nama" class="uppercase text-gray-500 font-semibold text-sm">nama</label><br>
+                    <input type="text" id="nama" class="w-full bg-neutral-200 px-4 py-2 rounded-lg shadow-md my-3" readonly><br>
+                    <label for="kelas" class="uppercase text-gray-500 font-semibold text-sm">kelas</label><br>
+                    <input type="text" id="kelas" class="w-full bg-neutral-200 px-4 py-2 rounded-lg shadow-md my-3" readonly><br>
+                    <label for="jurusan" class="uppercase text-gray-500 font-semibold text-sm">jurusan</label><br>
+                    <input type="text" id="jurusan" class="w-full bg-neutral-200 px-4 py-2 rounded-lg shadow-md my-3" readonly><br>
+                    <label for="alasan" class="uppercase text-gray-500 font-semibold text-sm">pengawas</label><br>
+                    <select id="pengawas" class="w-full bg-neutral-200 px-4 py-2 rounded-lg shadow-md my-3 ">
+                        <option value="option1">Pengawas 1</option>
+                        <option value="option2">Pengawas 2</option>
+                        <option value="option3">Pengawas 3</option>
+                    </select><br>
+                    <label for="alasan" class="uppercase text-gray-500 font-semibold text-sm">jenis pelanggaran</label><br>
+                    <select id="pengawas" class="w-full bg-neutral-200 px-4 py-2 rounded-lg shadow-md my-3">
+                        <option value="option1">Peserta alpa</option>
+                        <option value="option2">Pakaian tidak sesuai aturan sekolah</option>
+                        <option value="option3">Merusak nama baik sekolah</option>
+                        <option value="option3">bullying</option>
+                    </select><br>
+                  </div>
+          
+                  <div class="w-full text-center">
+                      <button class="bg-red-600 p-2 px-12 uppercase text-white rounded-lg mt-8 font-semibold">submit</button>
+                  </div>
+              </form>
+              </div>
+            </div>
+        </main>
+        <footer class="bg-black text-white px-20 flex justify-between items-center mt-52 pb-10">
+          <div class="w-1/2 items-center">
+            <img src="https://smktelkom-pwt.sch.id/wp-content/uploads/2019/02/logo-telkom-schools-392x385.png" alt="Logo" class="w-10 h-10 flex-shrink-0 mt-10">
+            <div>
+              <p class="mt-4">&copy; Skatel Perizinan & Laporan 2023</p>
+            </div>
+            <h2 class="mt-24 text-lg">Kritik & Saran</h2>
+            <div class="flex items-center mb-4 mt-4 w-60 relative">
+              <input id="emailInput" type="text" placeholder="Email address" class="flex-grow bg-transparent focus:outline-none focus:border-b border-b border-gray-500 py-2">
+              <span id="icon" class="bg-red-700 p-2 rounded-t text-white cursor-pointer absolute top-0 right-0">
+                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7.1543 14.1333L10.9751 10.3125L7.1543 6.49167L8.33346 5.3125L13.3335 10.3125L8.33346 15.3125L7.1543 14.1333Z" fill="#F7F7F7"/>
+                </svg>                  
+              </span>
+            </div>
+          </div>
+      
+          <div class="w-1/2 flex justify-start mt-[-50px]">
+            <div>
+              <h2 class="text-xl  text-red-600">Services</h2>
+              <ul class="list-none">
+                <li class="text-lg mt-4 transition-transform duration-300 transform hover:translate-x-[-5px]">Email Marketing</li>
+                <li class="text-lg mt-2 transition-transform duration-300 transform hover:translate-x-[-5px]">Campaigns</li>
+                <li class="text-lg mt-2 transition-transform duration-300 transform hover:translate-x-[-5px]">Branding</li>
+                <li class="text-lg mt-2 transition-transform duration-300 transform hover:translate-x-[-5px]">Offline</li>
+              </ul>
+            </div>
+      
+            <div class="ml-20">
+              <h2 class="text-xl  text-red-600">About</h2>
+              <ul class="list-none">
+                <li class="text-lg mt-4 transition-transform duration-300 transform hover:translate-x-[-5px]">Our Story</li>
+                <li class="text-lg mt-2 transition-transform duration-300 transform hover:translate-x-[-5px]">Benefits</li>
+                <li class="text-lg mt-2 transition-transform duration-300 transform hover:translate-x-[-5px]">Team</li>
+                <li class="text-lg mt-2 transition-transform duration-300 transform hover:translate-x-[-5px]">Careers</li>
+              </ul>
+            </div>
+
+            <div class="ml-20 flex">
+              <svg class="mr-4" width="8" height="16" viewBox="0 0 8 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.52006 2.63607H7.96941V0.111793C7.71936 0.0773953 6.85941 0 5.8579 0C3.76823 0 2.33675 1.3144 2.33675 3.73019V5.95349H0.0307617V8.77544H2.33675V15.876H5.16399V8.7761H7.3767L7.72796 5.95415H5.16333V4.01C5.16399 3.19438 5.38361 2.63607 6.52006 2.63607Z" fill="white"/>
+              </svg>
+              
+              <svg class="mr-4" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19.5556 1.881C18.8283 2.2 18.0534 2.41144 17.2456 2.51411C18.0767 2.01789 18.711 1.23811 19.0092 0.298222C18.2343 0.760222 17.3788 1.08656 16.467 1.26867C15.7312 0.485222 14.6826 0 13.5386 0C11.319 0 9.53211 1.80156 9.53211 4.01011C9.53211 4.32789 9.559 4.63344 9.625 4.92433C6.292 4.76178 3.34278 3.16433 1.36156 0.730889C1.01567 1.331 0.812778 2.01789 0.812778 2.75733C0.812778 4.14578 1.52778 5.37656 2.59356 6.08911C1.94944 6.07689 1.31756 5.88989 0.782222 5.59533C0.782222 5.60756 0.782222 5.62344 0.782222 5.63933C0.782222 7.58756 2.17189 9.20578 3.99422 9.57856C3.66789 9.66778 3.31222 9.71056 2.94311 9.71056C2.68644 9.71056 2.42733 9.69589 2.18411 9.64211C2.70356 11.2298 4.17756 12.397 5.93022 12.4349C4.56622 13.5019 2.83433 14.1448 0.959444 14.1448C0.630667 14.1448 0.315333 14.1301 0 14.0898C1.77589 15.235 3.88056 15.8889 6.15022 15.8889C13.5276 15.8889 17.5609 9.77778 17.5609 4.48067C17.5609 4.30344 17.5548 4.13233 17.5462 3.96244C18.3419 3.39778 19.0104 2.69256 19.5556 1.881Z" fill="white"/>
+              </svg>
+
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M5 0H11C13.761 0 16 2.239 16 5V11C16 13.761 13.761 16 11 16H5C2.239 16 0 13.761 0 11V5C0 2.239 2.239 0 5 0ZM11 14.5C12.93 14.5 14.5 12.93 14.5 11V5C14.5 3.07 12.93 1.5 11 1.5H5C3.07 1.5 1.5 3.07 1.5 5V11C1.5 12.93 3.07 14.5 5 14.5H11Z" fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 8C4 5.791 5.791 4 8 4C10.209 4 12 5.791 12 8C12 10.209 10.209 12 8 12C5.791 12 4 10.209 4 8ZM5.5 8C5.5 9.378 6.622 10.5 8 10.5C9.378 10.5 10.5 9.378 10.5 8C10.5 6.621 9.378 5.5 8 5.5C6.622 5.5 5.5 6.621 5.5 8Z" fill="white"/>
+                <circle cx="12.3001" cy="3.69999" r="0.533" fill="white"/>
+              </svg>
+            </div>
+          </div>
+        </footer>
+    </div>
+    <script>
+      function closeForm(formId) {
+          var formElement = document.getElementById(formId);
+          formElement.classList.remove('slide-in-from-top');
+          formElement.classList.add('fade-out');
+          setTimeout(() => {
+              formElement.classList.add('opacity-0', 'pointer-events-none');
+          }, 500);
+      }
+
+      function openForm(formId) {
+          var formElement = document.getElementById(formId);
+          formElement.classList.remove('opacity-0', 'pointer-events-none', 'fade-out');
+          formElement.classList.add('slide-in-from-top');
+      }
+  </script>
+  <script>
+    const emailInput = document.getElementById('emailInput');
+    const icon = document.getElementById('icon');
+
+    icon.addEventListener('click', () => {
+      if (emailInput.style.transform === 'translateX(-100%)') {
+        emailInput.style.transform = 'translateX(0)';
+        emailInput.style.opacity = '1';
+        icon.style.transform = 'translateX(0)';
+      } else {
+        emailInput.style.transform = 'translateX(-100%)';
+        emailInput.style.opacity = '0';
+        icon.style.transform = 'translateX(-205px)';
+      }
+    });
+  </script>
+  
+</body>
+</html>
