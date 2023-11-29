@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+  <script src="https://cdn.tailwindcss.com/3.3.0"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        fontFamily: {
+          sans: ["Roboto", "sans-serif"],
+          body: ["Roboto", "sans-serif"],
+          mono: ["ui-monospace", "monospace"],
+        },
+      },
+      corePlugins: {
+        preflight: false,
+      },
+    };
+  </script>
+  <script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            fontFamily: {
+                montserrat: ["Montserrat Alternates"],
+            },
+        },
+        corePlugins: {
+            preflight: false,
+        },
+    };
+</script>
+  <title>Dashboard Peraturan</title>
+  <style>
+    .nav-item {
+            transition: background-color 0.2s, color 0.2s;
+        } 
+    body {
+        overflow-x: hidden;
+      }
+      #mainContent {
+        max-width: 100%;
+        overflow: hidden;
+      }
+    .preloader-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #edf2f7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .4s case;
+    }
+
+    .fade-out-animation {
+      opacity: 0;
+      visibility: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="w-screen">
+    <div>
+      <div class="flex flex-col md:flex-row">
+        <aside id="sidebar"
+          class="fixed w-64 bg-red-900 md:min-h-screen border-r border-gray-100 transform transition-transform ease-in-out duration-300">
+          <div class="flex items-center justify-center p-5 text-white">
+            <!-- logo -->
+            <a class="flex items-center mx-8 transition duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" viewBox="0 0 496 512">
+                <path fill="#FFFFFF"
+                  d="M248 8C111 8 0 119 0 256s111 248 248 248s248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88s-88-39.4-88-88s39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2c18.8-35.4 55.6-59.8 98.5-59.8c2.4 0 4.8.4 7.1 1.1c13 4.2 26.6 6.9 40.9 6.9c14.3 0 28-2.7 40.9-6.9c2.3-.7 4.7-1.1 7.1-1.1c42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- nav -->
+          <nav class="ml-2 mt-12 text-center">
+            <div class="flex flex-col h-[80vh] justify-between">
+              <div class="">
+                <a href="dashboard_baru.html" class="flex items-center px-2 text-white font-semibold text-md py-3 ml-5 transition duration-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 30 30" fill="none">
+                    <path
+                      d="M0 0H13.125V10.2083H0V0ZM2.91667 2.91667V7.29167H10.2083V2.91667H2.91667ZM16.0417 0H29.1667V16.0417H16.0417V0ZM18.9583 2.91667V13.125H26.25V2.91667H18.9583ZM0 13.125H13.125V29.1667H0V13.125ZM2.91667 16.0417V26.25H10.2083V16.0417H2.91667ZM16.0417 18.9583H29.1667V29.1667H16.0417V18.9583ZM18.9583 21.875V26.25H26.25V21.875H18.9583Z"
+                      fill="#FFFFFF" />
+                  </svg>
+                  <span class="px-2 font-montserrat ">DASHBOARD</span>
+                </a>
+                <a href="peraturan.html" class="flex items-center px-2 text-white font-semibold text-md py-3 ml-3 mt-2 transition duration-200">
+                  <svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_1005_1599)">
+                    <mask id="mask0_1005_1599" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="3" width="32" height="32">
+                    <rect y="3" width="32" height="32" fill="#D9D9D9"/>
+                    </mask>
+                    <g mask="url(#mask0_1005_1599)">
+                    <path d="M12 14.9998V12.3332H24V14.9998H12ZM12 18.9998V16.3332H24V18.9998H12ZM16 32.3332H8C6.88889 32.3332 5.94444 31.9443 5.16667 31.1665C4.38889 30.3887 4 29.4443 4 28.3332V24.3332H8V5.6665H28V17.6998C27.5556 17.6554 27.1056 17.6721 26.65 17.7498C26.1944 17.8276 25.7556 17.9665 25.3333 18.1665V8.33317H10.6667V24.3332H18.6667L16 26.9998H6.66667V28.3332C6.66667 28.7109 6.79444 29.0276 7.05 29.2832C7.30556 29.5387 7.62222 29.6665 8 29.6665H16V32.3332ZM18.6667 32.3332V28.2332L26.0333 20.8998C26.2333 20.6998 26.4556 20.5554 26.7 20.4665C26.9444 20.3776 27.1889 20.3332 27.4333 20.3332C27.7 20.3332 27.9556 20.3832 28.2 20.4832C28.4444 20.5832 28.6667 20.7332 28.8667 20.9332L30.1 22.1665C30.2778 22.3665 30.4167 22.5887 30.5167 22.8332C30.6167 23.0776 30.6667 23.3221 30.6667 23.5665C30.6667 23.8109 30.6222 24.0609 30.5333 24.3165C30.4444 24.5721 30.3 24.7998 30.1 24.9998L22.7667 32.3332H18.6667ZM20.6667 30.3332H21.9333L25.9667 26.2665L25.3667 25.6332L24.7333 25.0332L20.6667 29.0665V30.3332ZM25.3667 25.6332L24.7333 25.0332L25.9667 26.2665L25.3667 25.6332Z" fill="white"/>
+                    </g>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_1005_1599">
+                    <rect width="32" height="32" fill="white" transform="translate(0 0.0483398)"/>
+                    </clipPath>
+                    </defs>
+                    </svg>                    
+                  <span class="px-2 font-montserrat">PELANGGARAN</span>
+                </a>
+                <a href="pelanggar.html" class="flex items-center px-2 text-white font-semibold text-md py-3 ml-5 mt-2 transition duration-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24">
+                    <g fill="none">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M12 7v6" />
+                      <circle cx="12" cy="16" r="1" fill="currentColor" />
+                      <path stroke="currentColor" stroke-linecap="round" stroke-width="1.5"
+                        d="M22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464c.974.974 1.3 2.343 1.41 4.536" />
+                    </g>
+                  </svg>
+                  <span class="px-2 font-montserrat">LAPORAN</span>
+                </a>
+              </div>
+
+              <div class="flex justify-center pr-6">
+                <a class="flex items-center px-2 text-white font-semibold text-md py-3 mt-7 transition duration-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 35 35" fill="none">
+                    <path
+                      d="M7.29167 30.625C6.48959 30.625 5.80271 30.3392 5.23104 29.7675C4.65938 29.1958 4.37403 28.5094 4.375 27.7083V7.29167C4.375 6.48959 4.66084 5.80271 5.2325 5.23104C5.80417 4.65938 6.49056 4.37403 7.29167 4.375H17.5V7.29167H7.29167V27.7083H17.5V30.625H7.29167ZM23.3333 24.7917L21.3281 22.6771L25.0469 18.9583H13.125V16.0417H25.0469L21.3281 12.3229L23.3333 10.2083L30.625 17.5L23.3333 24.7917Z"
+                      fill="white" />
+                  </svg>
+                  <span class="px-2 font-montserrat"><a class="flex items-center justify-center mt-7 text-white" href="/logout">LOG OUT</a></span>
+                </a>
+              </div>
+            </div>
+          </nav>
+        </aside>
+
+        <div id="mainContent" class="w-full md:flex-1 ml-60 transition-all duration-300">
+          <nav class="h-20 pl-4 pr-10 py-3 w-full flex justify-between bg-white text-white shadow-md">
+            <div class="flex items-center">
+              <button id="toggleSidebar" class="text-gray-800 mr-3 w-10 h-10 ml-4">
+                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5">
+                  </path>
+                </svg>
+              </button>
+              <a rel="noopener noreferrer" href="" class="flex justify-start">
+                <div class="flex items-center justify-center">
+                  <img class="h-10"
+                    src="https://smktelkom-pwt.sch.id/wp-content/uploads/2018/10/logo-telkom-schools.png" alt="logo" />
+                </div>
+              </a>
+            </div>
+            <div class="flex items-center">
+                <div class="px-12">
+                    <a rel="noopener noreferrer" href="" class="flex justify-start">
+                     <p class="text-black font-base text-lg">KEHADIRAN</p>
+                    </a>
+                  </div>
+                  <div class="px-12">
+                    <a rel="noopener noreferrer" href="#cara_isi_form" class="flex justify-start">
+                     <p class="text-black font-base text-lg">PENAMPILAN</p>
+                    </a>
+                  </div>
+                  <div class="px-12">
+                    <a rel="noopener noreferrer" href="#jenis_pelanggaran" class="flex justify-start">
+                     <p class="text-black font-base text-lg">PERILAKU</p>
+                    </a>
+                  </div>
+            </div>
+          </nav>
+          <main class="flex items-center justify-center">
+            <div>
+              <!-- content -->
+              <div class="py-12 px-32 flex flex-col">
+                <div class="flex justify-between items-center mb-4">
+                    <div class="relative ml-7 bg-gray-100 rounded-md px-4 py-2 w-96">
+                        <input class="w-full bg-transparent border-none focus:outline-none" type="text" placeholder="Cari">
+                        <svg class="absolute right-4 top-2/4 transform -translate-y-2/4" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19.728 17.2913L15.8332 13.3971C15.6574 13.2214 15.4191 13.1237 15.1691 13.1237H14.5323C15.6105 11.7449 16.2512 10.0107 16.2512 8.12421C16.2512 3.63636 12.6142 0 8.12559 0C3.63698 0 0 3.63636 0 8.12421C0 12.612 3.63698 16.2484 8.12559 16.2484C10.0125 16.2484 11.747 15.6079 13.126 14.5298V15.1665C13.126 15.4165 13.2236 15.6547 13.3994 15.8305L17.2942 19.7246C17.6614 20.0918 18.2552 20.0918 18.6185 19.7246L19.7241 18.6193C20.0913 18.2521 20.0913 17.6584 19.728 17.2913ZM8.12559 13.1237C5.36367 13.1237 3.12523 10.8896 3.12523 8.12421C3.12523 5.36276 5.35977 3.12469 8.12559 3.12469C10.8875 3.12469 13.126 5.35885 13.126 8.12421C13.126 10.8857 10.8914 13.1237 8.12559 13.1237Z" fill="black"/>
+                        </svg>
+                    </div>
+                    <a href=""><div class="flex items-center mr-7 bg-black hover:bg-gray-800 rounded-md px-4 py-2">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <rect width="20" height="20" fill="url(#pattern0)"/>
+                            <defs>
+                            <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                            <use xlink:href="#image0_1005_1796" transform="scale(0.02)"/>
+                            </pattern>
+                            <image id="image0_1005_1796" width="50" height="50" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAh0lEQVR4nO3asQnEMBAF0W1hA/Xg/ntRPd84vbvgAoHH8jxQalgGYRZUJekWSTrJ/DhdT5Nk5Nuop4mDwFiExiI0FqGxCI1FaCxCY5HFm91YcI4fi9Wx6Nv9zyDXSko3HQRmvqpIb3HZV/E/QmMRGovQWITGIjQWobEIjUVodirSWzwYkGoPJ+v+v08WsGgVAAAAAElFTkSuQmCC"/>
+                            </defs>
+                        </svg>                            
+                        <p class="uppercase font-montserrat text-white ml-4">tambah pelanggaran</p>                      
+                    </div></a>
+                </div>
+                <table class="mx-6 my-8 font-montserrat table-fixed uppercase">
+                    <thead class="bg-red-900 text-white ">
+                        <tr>
+                        <th class="rounded-tl-lg px-12 py-3 text-left relative font-light">
+                          <span>no</span>
+                          <svg class="absolute right-2 top-1/2 transform -translate-y-1/2" width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M2.98446 0.102148L0.860122 2.07614C0.713293 2.21258 0.713293 2.4332 0.860122 2.56819L1.21314 2.89622C1.35997 3.03266 1.59739 3.03266 1.74266 2.89622L3.25 1.49846L4.75578 2.89767C4.90261 3.03411 5.14003 3.03411 5.2853 2.89767L5.63988 2.56964C5.78671 2.4332 5.78671 2.21258 5.63988 2.07759L3.51554 0.103599C3.36871 -0.0342901 3.13129 -0.0342902 2.98446 0.102148Z" fill="white"/>
+                          <path d="M3.51554 7.89785L5.63988 5.92386C5.78671 5.78742 5.78671 5.5668 5.63988 5.43181L5.28686 5.10378C5.14003 4.96734 4.90261 4.96734 4.75734 5.10378L3.25 6.50154L1.74422 5.10233C1.59739 4.96589 1.35997 4.96589 1.2147 5.10233L0.860122 5.43036C0.713293 5.5668 0.713293 5.78742 0.860122 5.92241L2.98446 7.8964C3.13129 8.03429 3.36871 8.03429 3.51554 7.89785Z" fill="white"/>
+                          </svg>
+                        </th>
+                        <th class=" px-12 text-center relative font-light">
+                          <span>pelanggaran kehadiran</span>
+                          <svg class="absolute right-2 top-1/2 transform -translate-y-1/2" width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M2.98446 0.102148L0.860122 2.07614C0.713293 2.21258 0.713293 2.4332 0.860122 2.56819L1.21314 2.89622C1.35997 3.03266 1.59739 3.03266 1.74266 2.89622L3.25 1.49846L4.75578 2.89767C4.90261 3.03411 5.14003 3.03411 5.2853 2.89767L5.63988 2.56964C5.78671 2.4332 5.78671 2.21258 5.63988 2.07759L3.51554 0.103599C3.36871 -0.0342901 3.13129 -0.0342902 2.98446 0.102148Z" fill="white"/>
+                          <path d="M3.51554 7.89785L5.63988 5.92386C5.78671 5.78742 5.78671 5.5668 5.63988 5.43181L5.28686 5.10378C5.14003 4.96734 4.90261 4.96734 4.75734 5.10378L3.25 6.50154L1.74422 5.10233C1.59739 4.96589 1.35997 4.96589 1.2147 5.10233L0.860122 5.43036C0.713293 5.5668 0.713293 5.78742 0.860122 5.92241L2.98446 7.8964C3.13129 8.03429 3.36871 8.03429 3.51554 7.89785Z" fill="white"/>
+                          </svg>
+                        </th>
+                        <th class="px-12 text-left relative font-light">
+                          <span>poin</span>
+                          <svg class="absolute right-2 top-1/2 transform -translate-y-1/2" width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M2.98446 0.102148L0.860122 2.07614C0.713293 2.21258 0.713293 2.4332 0.860122 2.56819L1.21314 2.89622C1.35997 3.03266 1.59739 3.03266 1.74266 2.89622L3.25 1.49846L4.75578 2.89767C4.90261 3.03411 5.14003 3.03411 5.2853 2.89767L5.63988 2.56964C5.78671 2.4332 5.78671 2.21258 5.63988 2.07759L3.51554 0.103599C3.36871 -0.0342901 3.13129 -0.0342902 2.98446 0.102148Z" fill="white"/>
+                          <path d="M3.51554 7.89785L5.63988 5.92386C5.78671 5.78742 5.78671 5.5668 5.63988 5.43181L5.28686 5.10378C5.14003 4.96734 4.90261 4.96734 4.75734 5.10378L3.25 6.50154L1.74422 5.10233C1.59739 4.96589 1.35997 4.96589 1.2147 5.10233L0.860122 5.43036C0.713293 5.5668 0.713293 5.78742 0.860122 5.92241L2.98446 7.8964C3.13129 8.03429 3.36871 8.03429 3.51554 7.89785Z" fill="white"/>
+                          </svg>
+                        </th>
+                        <th class="rounded-tr-lg px-12 text-left relative font-light">
+                          <span>aksi</span>
+                          <svg class="absolute right-2 top-1/2 transform -translate-y-1/2" width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M2.98446 0.102148L0.860122 2.07614C0.713293 2.21258 0.713293 2.4332 0.860122 2.56819L1.21314 2.89622C1.35997 3.03266 1.59739 3.03266 1.74266 2.89622L3.25 1.49846L4.75578 2.89767C4.90261 3.03411 5.14003 3.03411 5.2853 2.89767L5.63988 2.56964C5.78671 2.4332 5.78671 2.21258 5.63988 2.07759L3.51554 0.103599C3.36871 -0.0342901 3.13129 -0.0342902 2.98446 0.102148Z" fill="white"/>
+                          <path d="M3.51554 7.89785L5.63988 5.92386C5.78671 5.78742 5.78671 5.5668 5.63988 5.43181L5.28686 5.10378C5.14003 4.96734 4.90261 4.96734 4.75734 5.10378L3.25 6.50154L1.74422 5.10233C1.59739 4.96589 1.35997 4.96589 1.2147 5.10233L0.860122 5.43036C0.713293 5.5668 0.713293 5.78742 0.860122 5.92241L2.98446 7.8964C3.13129 8.03429 3.36871 8.03429 3.51554 7.89785Z" fill="white"/>
+                          </svg>
+                        </th>
+                        </tr>
+                    </thead>
+                    <tbody class="border-r border-l border-b border-black shadow-md">
+                        <tr class="even:bg-gray-100 odd:bg-white">
+                        <td class="text-center py-6 text-black">1</td>
+                        <td class="text-black">peserta didik alpa (1 hari)</td>
+                        <td class="text-center text-black">3-7</td>
+                        <td class="flex items-center mt-3">
+                            <a href="edit_pelanggaran.html"><button class="bg-green-500 hover:bg-green-700 py-2 px-2 rounded-md ml-4">
+                                <svg width="30" height="30" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect y="0.5" width="40" height="38" fill="url(#pattern1)"/>
+                                    <defs>
+                                    <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_1005_1706" transform="matrix(0.0095 0 0 0.01 0.025 0)"/>
+                                    </pattern>
+                                    <image id="image0_1005_1706" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAADN0lEQVR4nO2du2sVQRSHRwWNAa0S0WhtYVpBEQsfbRCsFGJiowENqNFSFEsfWFjmr9BSBBHExkeloJX4ABEsoqbV5JPBWczr3r25ZnbOzP19sN29yznzMc/dnXFOCCGEEEIIIYQQQgjRMwAHgcvAJWBv6nh6FmAAeMxyHgBbnDWAncBRYAyYMHKdCTFt+M/ctgFvaM19ZwGgD5gCXgHz2OUdMBxJRkXa5gs4DnwmHz4BWyPJ8EzFK+32Qa4DbhivEa04F0mG50rckm8dqJeRK9ORZHgOxC/9lZupHGtGxa1IMh41Y2B5B55Tn7ES+yLI8L8faM7Ev2D9aCpnbkeSMdichcUB+6FtJ/wCZoxcX4EnwMnSZOzqoO/4ESaFm11GkJuMELSf7dZxymUGOcoIgY930Ez1uYwABoHXXcz4t1sIfrIm0G8uI8i1ZpQohJxrRmlCKEFGKUIoRUYJQihJRu5CKE1GzkIoUUauQihVRo5CKFlGbkKINOkD9gN3/EMu4PxqHwf3pBDiybjb4hn9nuayy0wI8WSMtvn/W2B9c1lmIoSIa1PA05r7HGomy0yEEHmhEPhSc6+z8bPMRAgNjKZ8bjX3m4ybZSZCaGhoKyHG5hkSYmzSJyHGZuASYmw5REKMrU1JiLGFQglZAvAw5dshErIAv04EzKaoGQti0MSwAtidUkaIQUIqgBMpZYQYJKQCuJlSRohBQir8l0kpZYQYJKSDwpgNo6/o79pKyOJvUjzfgWfAvfAW/nCTT+kkJOC3q/BSXGIkxBgSYgwJMYaEGENCjCEhxpAQY0iIMSTEGBJiDAkxhoQYQ0KMISHGkBBjSIgxJMQYVoX4rfva8Rvod4UB9IfN2doxanWLvzFXGMDpDvI+kurkg042wRwvoabwt2Z4GT9rcvZlsiNVkC/Jb5vYmS6vumaq4nkSGUGIP1FGLOZCSiEbgfdLAuplPgCbkgkJUo5lvhn/WjEHjDgLANfXLK18ueqsEA50udajNWXOy/Bl4KwRmq+P9FafMeIsE84UuQi8KLTGzPuhrR9NJe/AVwswBBw2dmzeRJfXWMhlKHW5CiGEEEIIIYQQQgghhHDG+QOVNZG3s95fbwAAAABJRU5ErkJggg=="/>
+                                    </defs>
+                                </svg>                                                                      
+                            </button></a>
+                            <a href=""><button class="bg-red-600 hover:bg-red-800 py-2 px-2 rounded-md ml-3">
+                                <svg width="30" height="30" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect y="0.5" width="40" height="38" fill="url(#pattern2)"/>
+                                    <defs>
+                                    <pattern id="pattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_1005_1708" transform="matrix(0.0095 0 0 0.01 0.025 0)"/>
+                                    </pattern>
+                                    <image id="image0_1005_1708" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACoUlEQVR4nO2dPWtUQRhGxw9QCzutxCAB/4JaiAiC2AeRWEU7CxGEYJNCLIKFnTYWkk5BUguioEV+gmWCgiJY2AgigeCRhVTiXPeud+M7b86B6ZaZfZ5z2TvLXnZKERERERERERERkakAHAWuAIvAnQnGdeCkev5dxCHgEbDJMLwAZhQzmYwDwBrD8wWYVUp/IctMjzWF9JNxEPjGdDmjlPGFnGP6LClkfCFXKyX+AF71HJ8rcz1WyPhCFiolvu9bIrBSmWtFIQrZOYD9o+3kQGOxclV/nGCu1cpcqwO+38MlGsAJdi8LJRoKCYZCgqGQYCgkGAqJv+2tMT/gdnN2B8Y4OeJte3+nI8j50hAkyZEmCElypAlCkhxpgpAkR5ogJMmRJghJcqQJQpIcaYKQJEfvIMDZykNu8x1r1B6MmxlwjV0r5G7l9W9aWiMsEctCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiG9yroFbPxhPO0QslEZpwdco5f0sGQJQpIcaYKQJEeaICTJkSYISXKkCUKSHGmCkCTHKMj3SpC50gjAkQ4hp0pLAOut/+c6cK1DyLHSEsCzSpCfwG1gbwkMcBH4WsnwCdhTWgK4TDejsG8nOH5i2uM18OEv7/1haQ1gH/COfGw2e4YVcAHYIhdLpWWAm9v3jQw8b+7e0XGEUW0b3AKjC+rB6GO4ZAE4DjxpTMwW8LK57xwTnN55CbgB3APuBxvL27+bzI2OfP3ffYmIiIiIiIiIiJRA/ALtQyq/7kV5uwAAAABJRU5ErkJggg=="/>
+                                    </defs>
+                                </svg>
+                            </button></a>
+                        </td>
+                        </tr>
+
+                        <tr class="even:bg-gray-100 odd:bg-white">
+                        <td class="text-center py-6 text-black">2</td>
+                        <td class="text-black">peserta didik alpa (2 hari)</td>
+                        <td class="text-center text-black">8-15</td>
+                        <td class="flex items-center mt-3">
+                            <a href=""><button class="bg-green-500 hover:bg-green-700 py-2 px-2 rounded-md ml-4">
+                                <svg width="30" height="30" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect y="0.5" width="40" height="38" fill="url(#pattern1)"/>
+                                    <defs>
+                                    <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_1005_1706" transform="matrix(0.0095 0 0 0.01 0.025 0)"/>
+                                    </pattern>
+                                    <image id="image0_1005_1706" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAADN0lEQVR4nO2du2sVQRSHRwWNAa0S0WhtYVpBEQsfbRCsFGJiowENqNFSFEsfWFjmr9BSBBHExkeloJX4ABEsoqbV5JPBWczr3r25ZnbOzP19sN29yznzMc/dnXFOCCGEEEIIIYQQQgjRMwAHgcvAJWBv6nh6FmAAeMxyHgBbnDWAncBRYAyYMHKdCTFt+M/ctgFvaM19ZwGgD5gCXgHz2OUdMBxJRkXa5gs4DnwmHz4BWyPJ8EzFK+32Qa4DbhivEa04F0mG50rckm8dqJeRK9ORZHgOxC/9lZupHGtGxa1IMh41Y2B5B55Tn7ES+yLI8L8faM7Ev2D9aCpnbkeSMdichcUB+6FtJ/wCZoxcX4EnwMnSZOzqoO/4ESaFm11GkJuMELSf7dZxymUGOcoIgY930Ez1uYwABoHXXcz4t1sIfrIm0G8uI8i1ZpQohJxrRmlCKEFGKUIoRUYJQihJRu5CKE1GzkIoUUauQihVRo5CKFlGbkKINOkD9gN3/EMu4PxqHwf3pBDiybjb4hn9nuayy0wI8WSMtvn/W2B9c1lmIoSIa1PA05r7HGomy0yEEHmhEPhSc6+z8bPMRAgNjKZ8bjX3m4ybZSZCaGhoKyHG5hkSYmzSJyHGZuASYmw5REKMrU1JiLGFQglZAvAw5dshErIAv04EzKaoGQti0MSwAtidUkaIQUIqgBMpZYQYJKQCuJlSRohBQir8l0kpZYQYJKSDwpgNo6/o79pKyOJvUjzfgWfAvfAW/nCTT+kkJOC3q/BSXGIkxBgSYgwJMYaEGENCjCEhxpAQY0iIMSTEGBJiDAkxhoQYQ0KMISHGkBBjSIgxJMQYVoX4rfva8Rvod4UB9IfN2doxanWLvzFXGMDpDvI+kurkg042wRwvoabwt2Z4GT9rcvZlsiNVkC/Jb5vYmS6vumaq4nkSGUGIP1FGLOZCSiEbgfdLAuplPgCbkgkJUo5lvhn/WjEHjDgLANfXLK18ueqsEA50udajNWXOy/Bl4KwRmq+P9FafMeIsE84UuQi8KLTGzPuhrR9NJe/AVwswBBw2dmzeRJfXWMhlKHW5CiGEEEIIIYQQQgghhHDG+QOVNZG3s95fbwAAAABJRU5ErkJggg=="/>
+                                    </defs>
+                                </svg>                                                                      
+                            </button></a>
+                            <a href=""><button class="bg-red-600 hover:bg-red-800 py-2 px-2 rounded-md ml-3">
+                                <svg width="30" height="30" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect y="0.5" width="40" height="38" fill="url(#pattern2)"/>
+                                    <defs>
+                                    <pattern id="pattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_1005_1708" transform="matrix(0.0095 0 0 0.01 0.025 0)"/>
+                                    </pattern>
+                                    <image id="image0_1005_1708" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACoUlEQVR4nO2dPWtUQRhGxw9QCzutxCAB/4JaiAiC2AeRWEU7CxGEYJNCLIKFnTYWkk5BUguioEV+gmWCgiJY2AgigeCRhVTiXPeud+M7b86B6ZaZfZ5z2TvLXnZKERERERERERERkakAHAWuAIvAnQnGdeCkev5dxCHgEbDJMLwAZhQzmYwDwBrD8wWYVUp/IctMjzWF9JNxEPjGdDmjlPGFnGP6LClkfCFXKyX+AF71HJ8rcz1WyPhCFiolvu9bIrBSmWtFIQrZOYD9o+3kQGOxclV/nGCu1cpcqwO+38MlGsAJdi8LJRoKCYZCgqGQYCgkGAqJv+2tMT/gdnN2B8Y4OeJte3+nI8j50hAkyZEmCElypAlCkhxpgpAkR5ogJMmRJghJcqQJQpIcaYKQJEfvIMDZykNu8x1r1B6MmxlwjV0r5G7l9W9aWiMsEctCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiG9yroFbPxhPO0QslEZpwdco5f0sGQJQpIcaYKQJEeaICTJkSYISXKkCUKSHGmCkCTHKMj3SpC50gjAkQ4hp0pLAOut/+c6cK1DyLHSEsCzSpCfwG1gbwkMcBH4WsnwCdhTWgK4TDejsG8nOH5i2uM18OEv7/1haQ1gH/COfGw2e4YVcAHYIhdLpWWAm9v3jQw8b+7e0XGEUW0b3AKjC+rB6GO4ZAE4DjxpTMwW8LK57xwTnN55CbgB3APuBxvL27+bzI2OfP3ffYmIiIiIiIiIiJRA/ALtQyq/7kV5uwAAAABJRU5ErkJggg=="/>
+                                    </defs>
+                                </svg>
+                            </button></a>
+                        </td>
+                        </tr>
+
+                        <tr class="even:bg-gray-100 odd:bg-white">
+                        <td class="text-center py-6 text-black">3</td>
+                        <td class="text-black">peserta didik alpa (3 hari)</td>
+                        <td class="text-center text-black">16-25</td>
+                        <td class="flex items-center mt-3">
+                            <a href=""><button class="bg-green-500 hover:bg-green-700 py-2 px-2 rounded-md ml-4">
+                                <svg width="30" height="30" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect y="0.5" width="40" height="38" fill="url(#pattern1)"/>
+                                    <defs>
+                                    <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_1005_1706" transform="matrix(0.0095 0 0 0.01 0.025 0)"/>
+                                    </pattern>
+                                    <image id="image0_1005_1706" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAADN0lEQVR4nO2du2sVQRSHRwWNAa0S0WhtYVpBEQsfbRCsFGJiowENqNFSFEsfWFjmr9BSBBHExkeloJX4ABEsoqbV5JPBWczr3r25ZnbOzP19sN29yznzMc/dnXFOCCGEEEIIIYQQQgjRMwAHgcvAJWBv6nh6FmAAeMxyHgBbnDWAncBRYAyYMHKdCTFt+M/ctgFvaM19ZwGgD5gCXgHz2OUdMBxJRkXa5gs4DnwmHz4BWyPJ8EzFK+32Qa4DbhivEa04F0mG50rckm8dqJeRK9ORZHgOxC/9lZupHGtGxa1IMh41Y2B5B55Tn7ES+yLI8L8faM7Ev2D9aCpnbkeSMdichcUB+6FtJ/wCZoxcX4EnwMnSZOzqoO/4ESaFm11GkJuMELSf7dZxymUGOcoIgY930Ez1uYwABoHXXcz4t1sIfrIm0G8uI8i1ZpQohJxrRmlCKEFGKUIoRUYJQihJRu5CKE1GzkIoUUauQihVRo5CKFlGbkKINOkD9gN3/EMu4PxqHwf3pBDiybjb4hn9nuayy0wI8WSMtvn/W2B9c1lmIoSIa1PA05r7HGomy0yEEHmhEPhSc6+z8bPMRAgNjKZ8bjX3m4ybZSZCaGhoKyHG5hkSYmzSJyHGZuASYmw5REKMrU1JiLGFQglZAvAw5dshErIAv04EzKaoGQti0MSwAtidUkaIQUIqgBMpZYQYJKQCuJlSRohBQir8l0kpZYQYJKSDwpgNo6/o79pKyOJvUjzfgWfAvfAW/nCTT+kkJOC3q/BSXGIkxBgSYgwJMYaEGENCjCEhxpAQY0iIMSTEGBJiDAkxhoQYQ0KMISHGkBBjSIgxJMQYVoX4rfva8Rvod4UB9IfN2doxanWLvzFXGMDpDvI+kurkg042wRwvoabwt2Z4GT9rcvZlsiNVkC/Jb5vYmS6vumaq4nkSGUGIP1FGLOZCSiEbgfdLAuplPgCbkgkJUo5lvhn/WjEHjDgLANfXLK18ueqsEA50udajNWXOy/Bl4KwRmq+P9FafMeIsE84UuQi8KLTGzPuhrR9NJe/AVwswBBw2dmzeRJfXWMhlKHW5CiGEEEIIIYQQQgghhHDG+QOVNZG3s95fbwAAAABJRU5ErkJggg=="/>
+                                    </defs>
+                                </svg>                                                                      
+                            </button></a>
+                            <a href=""><button class="bg-red-600 hover:bg-red-800 py-2 px-2 rounded-md ml-3">
+                                <svg width="30" height="30" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect y="0.5" width="40" height="38" fill="url(#pattern2)"/>
+                                    <defs>
+                                    <pattern id="pattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_1005_1708" transform="matrix(0.0095 0 0 0.01 0.025 0)"/>
+                                    </pattern>
+                                    <image id="image0_1005_1708" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACoUlEQVR4nO2dPWtUQRhGxw9QCzutxCAB/4JaiAiC2AeRWEU7CxGEYJNCLIKFnTYWkk5BUguioEV+gmWCgiJY2AgigeCRhVTiXPeud+M7b86B6ZaZfZ5z2TvLXnZKERERERERERERkakAHAWuAIvAnQnGdeCkev5dxCHgEbDJMLwAZhQzmYwDwBrD8wWYVUp/IctMjzWF9JNxEPjGdDmjlPGFnGP6LClkfCFXKyX+AF71HJ8rcz1WyPhCFiolvu9bIrBSmWtFIQrZOYD9o+3kQGOxclV/nGCu1cpcqwO+38MlGsAJdi8LJRoKCYZCgqGQYCgkGAqJv+2tMT/gdnN2B8Y4OeJte3+nI8j50hAkyZEmCElypAlCkhxpgpAkR5ogJMmRJghJcqQJQpIcaYKQJEfvIMDZykNu8x1r1B6MmxlwjV0r5G7l9W9aWiMsEctCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiG9yroFbPxhPO0QslEZpwdco5f0sGQJQpIcaYKQJEeaICTJkSYISXKkCUKSHGmCkCTHKMj3SpC50gjAkQ4hp0pLAOut/+c6cK1DyLHSEsCzSpCfwG1gbwkMcBH4WsnwCdhTWgK4TDejsG8nOH5i2uM18OEv7/1haQ1gH/COfGw2e4YVcAHYIhdLpWWAm9v3jQw8b+7e0XGEUW0b3AKjC+rB6GO4ZAE4DjxpTMwW8LK57xwTnN55CbgB3APuBxvL27+bzI2OfP3ffYmIiIiIiIiIiJRA/ALtQyq/7kV5uwAAAABJRU5ErkJggg=="/>
+                                    </defs>
+                                </svg>
+                            </button></a>
+                        </td>
+                        </tr>
+
+                        <tr class="even:bg-gray-100 odd:bg-white">
+                        <td class="text-center py-6 text-black">4</td>
+                        <td class="text-black">peserta didik alpa (4 hari)</td>
+                        <td class="text-center text-black">26-37</td>
+                        <td class="flex items-center mt-3">
+                            <a href=""><button class="bg-green-500 hover:bg-green-700 py-2 px-2 rounded-md ml-4">
+                                <svg width="30" height="30" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect y="0.5" width="40" height="38" fill="url(#pattern1)"/>
+                                    <defs>
+                                    <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_1005_1706" transform="matrix(0.0095 0 0 0.01 0.025 0)"/>
+                                    </pattern>
+                                    <image id="image0_1005_1706" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAADN0lEQVR4nO2du2sVQRSHRwWNAa0S0WhtYVpBEQsfbRCsFGJiowENqNFSFEsfWFjmr9BSBBHExkeloJX4ABEsoqbV5JPBWczr3r25ZnbOzP19sN29yznzMc/dnXFOCCGEEEIIIYQQQgjRMwAHgcvAJWBv6nh6FmAAeMxyHgBbnDWAncBRYAyYMHKdCTFt+M/ctgFvaM19ZwGgD5gCXgHz2OUdMBxJRkXa5gs4DnwmHz4BWyPJ8EzFK+32Qa4DbhivEa04F0mG50rckm8dqJeRK9ORZHgOxC/9lZupHGtGxa1IMh41Y2B5B55Tn7ES+yLI8L8faM7Ev2D9aCpnbkeSMdichcUB+6FtJ/wCZoxcX4EnwMnSZOzqoO/4ESaFm11GkJuMELSf7dZxymUGOcoIgY930Ez1uYwABoHXXcz4t1sIfrIm0G8uI8i1ZpQohJxrRmlCKEFGKUIoRUYJQihJRu5CKE1GzkIoUUauQihVRo5CKFlGbkKINOkD9gN3/EMu4PxqHwf3pBDiybjb4hn9nuayy0wI8WSMtvn/W2B9c1lmIoSIa1PA05r7HGomy0yEEHmhEPhSc6+z8bPMRAgNjKZ8bjX3m4ybZSZCaGhoKyHG5hkSYmzSJyHGZuASYmw5REKMrU1JiLGFQglZAvAw5dshErIAv04EzKaoGQti0MSwAtidUkaIQUIqgBMpZYQYJKQCuJlSRohBQir8l0kpZYQYJKSDwpgNo6/o79pKyOJvUjzfgWfAvfAW/nCTT+kkJOC3q/BSXGIkxBgSYgwJMYaEGENCjCEhxpAQY0iIMSTEGBJiDAkxhoQYQ0KMISHGkBBjSIgxJMQYVoX4rfva8Rvod4UB9IfN2doxanWLvzFXGMDpDvI+kurkg042wRwvoabwt2Z4GT9rcvZlsiNVkC/Jb5vYmS6vumaq4nkSGUGIP1FGLOZCSiEbgfdLAuplPgCbkgkJUo5lvhn/WjEHjDgLANfXLK18ueqsEA50udajNWXOy/Bl4KwRmq+P9FafMeIsE84UuQi8KLTGzPuhrR9NJe/AVwswBBw2dmzeRJfXWMhlKHW5CiGEEEIIIYQQQgghhHDG+QOVNZG3s95fbwAAAABJRU5ErkJggg=="/>
+                                    </defs>
+                                </svg>                                                                      
+                            </button></a>
+                            <a href=""><button class="bg-red-600 hover:bg-red-800 py-2 px-2 rounded-md ml-3">
+                                <svg width="30" height="30" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect y="0.5" width="40" height="38" fill="url(#pattern2)"/>
+                                    <defs>
+                                    <pattern id="pattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_1005_1708" transform="matrix(0.0095 0 0 0.01 0.025 0)"/>
+                                    </pattern>
+                                    <image id="image0_1005_1708" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACoUlEQVR4nO2dPWtUQRhGxw9QCzutxCAB/4JaiAiC2AeRWEU7CxGEYJNCLIKFnTYWkk5BUguioEV+gmWCgiJY2AgigeCRhVTiXPeud+M7b86B6ZaZfZ5z2TvLXnZKERERERERERERkakAHAWuAIvAnQnGdeCkev5dxCHgEbDJMLwAZhQzmYwDwBrD8wWYVUp/IctMjzWF9JNxEPjGdDmjlPGFnGP6LClkfCFXKyX+AF71HJ8rcz1WyPhCFiolvu9bIrBSmWtFIQrZOYD9o+3kQGOxclV/nGCu1cpcqwO+38MlGsAJdi8LJRoKCYZCgqGQYCgkGAqJv+2tMT/gdnN2B8Y4OeJte3+nI8j50hAkyZEmCElypAlCkhxpgpAkR5ogJMmRJghJcqQJQpIcaYKQJEfvIMDZykNu8x1r1B6MmxlwjV0r5G7l9W9aWiMsEctCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiG9yroFbPxhPO0QslEZpwdco5f0sGQJQpIcaYKQJEeaICTJkSYISXKkCUKSHGmCkCTHKMj3SpC50gjAkQ4hp0pLAOut/+c6cK1DyLHSEsCzSpCfwG1gbwkMcBH4WsnwCdhTWgK4TDejsG8nOH5i2uM18OEv7/1haQ1gH/COfGw2e4YVcAHYIhdLpWWAm9v3jQw8b+7e0XGEUW0b3AKjC+rB6GO4ZAE4DjxpTMwW8LK57xwTnN55CbgB3APuBxvL27+bzI2OfP3ffYmIiIiIiIiIiJRA/ALtQyq/7kV5uwAAAABJRU5ErkJggg=="/>
+                                    </defs>
+                                </svg>
+                            </button></a>
+                        </td>
+                        </tr>
+
+                        <tr class="even:bg-gray-100 odd:bg-white">
+                        <td class="text-center py-6 text-black">5</td>
+                        <td class="text-black">peserta didik alpa (5 hari)</td>
+                        <td class="text-center text-black">38-51</td>
+                        <td class="flex items-center mt-3">
+                            <a href=""><button class="bg-green-500 hover:bg-green-700 py-2 px-2 rounded-md ml-4">
+                                <svg width="30" height="30" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect y="0.5" width="40" height="38" fill="url(#pattern1)"/>
+                                    <defs>
+                                    <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_1005_1706" transform="matrix(0.0095 0 0 0.01 0.025 0)"/>
+                                    </pattern>
+                                    <image id="image0_1005_1706" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAADN0lEQVR4nO2du2sVQRSHRwWNAa0S0WhtYVpBEQsfbRCsFGJiowENqNFSFEsfWFjmr9BSBBHExkeloJX4ABEsoqbV5JPBWczr3r25ZnbOzP19sN29yznzMc/dnXFOCCGEEEIIIYQQQgjRMwAHgcvAJWBv6nh6FmAAeMxyHgBbnDWAncBRYAyYMHKdCTFt+M/ctgFvaM19ZwGgD5gCXgHz2OUdMBxJRkXa5gs4DnwmHz4BWyPJ8EzFK+32Qa4DbhivEa04F0mG50rckm8dqJeRK9ORZHgOxC/9lZupHGtGxa1IMh41Y2B5B55Tn7ES+yLI8L8faM7Ev2D9aCpnbkeSMdichcUB+6FtJ/wCZoxcX4EnwMnSZOzqoO/4ESaFm11GkJuMELSf7dZxymUGOcoIgY930Ez1uYwABoHXXcz4t1sIfrIm0G8uI8i1ZpQohJxrRmlCKEFGKUIoRUYJQihJRu5CKE1GzkIoUUauQihVRo5CKFlGbkKINOkD9gN3/EMu4PxqHwf3pBDiybjb4hn9nuayy0wI8WSMtvn/W2B9c1lmIoSIa1PA05r7HGomy0yEEHmhEPhSc6+z8bPMRAgNjKZ8bjX3m4ybZSZCaGhoKyHG5hkSYmzSJyHGZuASYmw5REKMrU1JiLGFQglZAvAw5dshErIAv04EzKaoGQti0MSwAtidUkaIQUIqgBMpZYQYJKQCuJlSRohBQir8l0kpZYQYJKSDwpgNo6/o79pKyOJvUjzfgWfAvfAW/nCTT+kkJOC3q/BSXGIkxBgSYgwJMYaEGENCjCEhxpAQY0iIMSTEGBJiDAkxhoQYQ0KMISHGkBBjSIgxJMQYVoX4rfva8Rvod4UB9IfN2doxanWLvzFXGMDpDvI+kurkg042wRwvoabwt2Z4GT9rcvZlsiNVkC/Jb5vYmS6vumaq4nkSGUGIP1FGLOZCSiEbgfdLAuplPgCbkgkJUo5lvhn/WjEHjDgLANfXLK18ueqsEA50udajNWXOy/Bl4KwRmq+P9FafMeIsE84UuQi8KLTGzPuhrR9NJe/AVwswBBw2dmzeRJfXWMhlKHW5CiGEEEIIIYQQQgghhHDG+QOVNZG3s95fbwAAAABJRU5ErkJggg=="/>
+                                    </defs>
+                                </svg>                                                                      
+                            </button></a>
+                            <a href=""><button class="bg-red-600 hover:bg-red-800 py-2 px-2 rounded-md ml-3">
+                                <svg width="30" height="30" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect y="0.5" width="40" height="38" fill="url(#pattern2)"/>
+                                    <defs>
+                                    <pattern id="pattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_1005_1708" transform="matrix(0.0095 0 0 0.01 0.025 0)"/>
+                                    </pattern>
+                                    <image id="image0_1005_1708" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACoUlEQVR4nO2dPWtUQRhGxw9QCzutxCAB/4JaiAiC2AeRWEU7CxGEYJNCLIKFnTYWkk5BUguioEV+gmWCgiJY2AgigeCRhVTiXPeud+M7b86B6ZaZfZ5z2TvLXnZKERERERERERERkakAHAWuAIvAnQnGdeCkev5dxCHgEbDJMLwAZhQzmYwDwBrD8wWYVUp/IctMjzWF9JNxEPjGdDmjlPGFnGP6LClkfCFXKyX+AF71HJ8rcz1WyPhCFiolvu9bIrBSmWtFIQrZOYD9o+3kQGOxclV/nGCu1cpcqwO+38MlGsAJdi8LJRoKCYZCgqGQYCgkGAqJv+2tMT/gdnN2B8Y4OeJte3+nI8j50hAkyZEmCElypAlCkhxpgpAkR5ogJMmRJghJcqQJQpIcaYKQJEfvIMDZykNu8x1r1B6MmxlwjV0r5G7l9W9aWiMsEctCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiG9yroFbPxhPO0QslEZpwdco5f0sGQJQpIcaYKQJEeaICTJkSYISXKkCUKSHGmCkCTHKMj3SpC50gjAkQ4hp0pLAOut/+c6cK1DyLHSEsCzSpCfwG1gbwkMcBH4WsnwCdhTWgK4TDejsG8nOH5i2uM18OEv7/1haQ1gH/COfGw2e4YVcAHYIhdLpWWAm9v3jQw8b+7e0XGEUW0b3AKjC+rB6GO4ZAE4DjxpTMwW8LK57xwTnN55CbgB3APuBxvL27+bzI2OfP3ffYmIiIiIiIiIiJRA/ALtQyq/7kV5uwAAAABJRU5ErkJggg=="/>
+                                    </defs>
+                                </svg>
+                            </button></a>
+                        </td>
+                        </tr>
+
+                        <tr class="even:bg-gray-100 odd:bg-white">
+                        <td class="text-center py-6 text-black">6</td>
+                        <td class="text-black">peserta didik alpa (6 hari)</td>
+                        <td class="text-center text-black">52-70</td>
+                        <td class="flex items-center mt-3">
+                            <a href=""><button class="bg-green-500 hover:bg-green-700 py-2 px-2 rounded-md ml-4">
+                                <svg width="30" height="30" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect y="0.5" width="40" height="38" fill="url(#pattern1)"/>
+                                    <defs>
+                                    <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_1005_1706" transform="matrix(0.0095 0 0 0.01 0.025 0)"/>
+                                    </pattern>
+                                    <image id="image0_1005_1706" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAADN0lEQVR4nO2du2sVQRSHRwWNAa0S0WhtYVpBEQsfbRCsFGJiowENqNFSFEsfWFjmr9BSBBHExkeloJX4ABEsoqbV5JPBWczr3r25ZnbOzP19sN29yznzMc/dnXFOCCGEEEIIIYQQQgjRMwAHgcvAJWBv6nh6FmAAeMxyHgBbnDWAncBRYAyYMHKdCTFt+M/ctgFvaM19ZwGgD5gCXgHz2OUdMBxJRkXa5gs4DnwmHz4BWyPJ8EzFK+32Qa4DbhivEa04F0mG50rckm8dqJeRK9ORZHgOxC/9lZupHGtGxa1IMh41Y2B5B55Tn7ES+yLI8L8faM7Ev2D9aCpnbkeSMdichcUB+6FtJ/wCZoxcX4EnwMnSZOzqoO/4ESaFm11GkJuMELSf7dZxymUGOcoIgY930Ez1uYwABoHXXcz4t1sIfrIm0G8uI8i1ZpQohJxrRmlCKEFGKUIoRUYJQihJRu5CKE1GzkIoUUauQihVRo5CKFlGbkKINOkD9gN3/EMu4PxqHwf3pBDiybjb4hn9nuayy0wI8WSMtvn/W2B9c1lmIoSIa1PA05r7HGomy0yEEHmhEPhSc6+z8bPMRAgNjKZ8bjX3m4ybZSZCaGhoKyHG5hkSYmzSJyHGZuASYmw5REKMrU1JiLGFQglZAvAw5dshErIAv04EzKaoGQti0MSwAtidUkaIQUIqgBMpZYQYJKQCuJlSRohBQir8l0kpZYQYJKSDwpgNo6/o79pKyOJvUjzfgWfAvfAW/nCTT+kkJOC3q/BSXGIkxBgSYgwJMYaEGENCjCEhxpAQY0iIMSTEGBJiDAkxhoQYQ0KMISHGkBBjSIgxJMQYVoX4rfva8Rvod4UB9IfN2doxanWLvzFXGMDpDvI+kurkg042wRwvoabwt2Z4GT9rcvZlsiNVkC/Jb5vYmS6vumaq4nkSGUGIP1FGLOZCSiEbgfdLAuplPgCbkgkJUo5lvhn/WjEHjDgLANfXLK18ueqsEA50udajNWXOy/Bl4KwRmq+P9FafMeIsE84UuQi8KLTGzPuhrR9NJe/AVwswBBw2dmzeRJfXWMhlKHW5CiGEEEIIIYQQQgghhHDG+QOVNZG3s95fbwAAAABJRU5ErkJggg=="/>
+                                    </defs>
+                                </svg>                                                                      
+                            </button></a>
+                            <a href=""><button class="bg-red-600 hover:bg-red-800 py-2 px-2 rounded-md ml-3">
+                                <svg width="30" height="30" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect y="0.5" width="40" height="38" fill="url(#pattern2)"/>
+                                    <defs>
+                                    <pattern id="pattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_1005_1708" transform="matrix(0.0095 0 0 0.01 0.025 0)"/>
+                                    </pattern>
+                                    <image id="image0_1005_1708" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACoUlEQVR4nO2dPWtUQRhGxw9QCzutxCAB/4JaiAiC2AeRWEU7CxGEYJNCLIKFnTYWkk5BUguioEV+gmWCgiJY2AgigeCRhVTiXPeud+M7b86B6ZaZfZ5z2TvLXnZKERERERERERERkakAHAWuAIvAnQnGdeCkev5dxCHgEbDJMLwAZhQzmYwDwBrD8wWYVUp/IctMjzWF9JNxEPjGdDmjlPGFnGP6LClkfCFXKyX+AF71HJ8rcz1WyPhCFiolvu9bIrBSmWtFIQrZOYD9o+3kQGOxclV/nGCu1cpcqwO+38MlGsAJdi8LJRoKCYZCgqGQYCgkGAqJv+2tMT/gdnN2B8Y4OeJte3+nI8j50hAkyZEmCElypAlCkhxpgpAkR5ogJMmRJghJcqQJQpIcaYKQJEfvIMDZykNu8x1r1B6MmxlwjV0r5G7l9W9aWiMsEctCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiG9yroFbPxhPO0QslEZpwdco5f0sGQJQpIcaYKQJEeaICTJkSYISXKkCUKSHGmCkCTHKMj3SpC50gjAkQ4hp0pLAOut/+c6cK1DyLHSEsCzSpCfwG1gbwkMcBH4WsnwCdhTWgK4TDejsG8nOH5i2uM18OEv7/1haQ1gH/COfGw2e4YVcAHYIhdLpWWAm9v3jQw8b+7e0XGEUW0b3AKjC+rB6GO4ZAE4DjxpTMwW8LK57xwTnN55CbgB3APuBxvL27+bzI2OfP3ffYmIiIiIiIiIiJRA/ALtQyq/7kV5uwAAAABJRU5ErkJggg=="/>
+                                    </defs>
+                                </svg>
+                            </button></a>
+                        </td>
+                        </tr>
+
+                        <tr class="even:bg-gray-100 odd:bg-white">
+                            <td class="text-center py-6 text-black">7</td>
+                            <td class="text-black">peserta didik terlambat masuk kelas tanpa izin guru piket</td>
+                            <td class="text-center text-black">5</td>
+                            <td class="flex items-center mt-3">
+                                <a href=""><button class="bg-green-500 hover:bg-green-700 py-2 px-2 rounded-md ml-4">
+                                    <svg width="30" height="30" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <rect y="0.5" width="40" height="38" fill="url(#pattern1)"/>
+                                        <defs>
+                                        <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                        <use xlink:href="#image0_1005_1706" transform="matrix(0.0095 0 0 0.01 0.025 0)"/>
+                                        </pattern>
+                                        <image id="image0_1005_1706" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAADN0lEQVR4nO2du2sVQRSHRwWNAa0S0WhtYVpBEQsfbRCsFGJiowENqNFSFEsfWFjmr9BSBBHExkeloJX4ABEsoqbV5JPBWczr3r25ZnbOzP19sN29yznzMc/dnXFOCCGEEEIIIYQQQgjRMwAHgcvAJWBv6nh6FmAAeMxyHgBbnDWAncBRYAyYMHKdCTFt+M/ctgFvaM19ZwGgD5gCXgHz2OUdMBxJRkXa5gs4DnwmHz4BWyPJ8EzFK+32Qa4DbhivEa04F0mG50rckm8dqJeRK9ORZHgOxC/9lZupHGtGxa1IMh41Y2B5B55Tn7ES+yLI8L8faM7Ev2D9aCpnbkeSMdichcUB+6FtJ/wCZoxcX4EnwMnSZOzqoO/4ESaFm11GkJuMELSf7dZxymUGOcoIgY930Ez1uYwABoHXXcz4t1sIfrIm0G8uI8i1ZpQohJxrRmlCKEFGKUIoRUYJQihJRu5CKE1GzkIoUUauQihVRo5CKFlGbkKINOkD9gN3/EMu4PxqHwf3pBDiybjb4hn9nuayy0wI8WSMtvn/W2B9c1lmIoSIa1PA05r7HGomy0yEEHmhEPhSc6+z8bPMRAgNjKZ8bjX3m4ybZSZCaGhoKyHG5hkSYmzSJyHGZuASYmw5REKMrU1JiLGFQglZAvAw5dshErIAv04EzKaoGQti0MSwAtidUkaIQUIqgBMpZYQYJKQCuJlSRohBQir8l0kpZYQYJKSDwpgNo6/o79pKyOJvUjzfgWfAvfAW/nCTT+kkJOC3q/BSXGIkxBgSYgwJMYaEGENCjCEhxpAQY0iIMSTEGBJiDAkxhoQYQ0KMISHGkBBjSIgxJMQYVoX4rfva8Rvod4UB9IfN2doxanWLvzFXGMDpDvI+kurkg042wRwvoabwt2Z4GT9rcvZlsiNVkC/Jb5vYmS6vumaq4nkSGUGIP1FGLOZCSiEbgfdLAuplPgCbkgkJUo5lvhn/WjEHjDgLANfXLK18ueqsEA50udajNWXOy/Bl4KwRmq+P9FafMeIsE84UuQi8KLTGzPuhrR9NJe/AVwswBBw2dmzeRJfXWMhlKHW5CiGEEEIIIYQQQgghhHDG+QOVNZG3s95fbwAAAABJRU5ErkJggg=="/>
+                                        </defs>
+                                    </svg>                                                                      
+                                </button></a>
+                                <a href=""><button class="bg-red-600 hover:bg-red-800 py-2 px-2 rounded-md ml-3">
+                                    <svg width="30" height="30" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <rect y="0.5" width="40" height="38" fill="url(#pattern2)"/>
+                                        <defs>
+                                        <pattern id="pattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                        <use xlink:href="#image0_1005_1708" transform="matrix(0.0095 0 0 0.01 0.025 0)"/>
+                                        </pattern>
+                                        <image id="image0_1005_1708" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACoUlEQVR4nO2dPWtUQRhGxw9QCzutxCAB/4JaiAiC2AeRWEU7CxGEYJNCLIKFnTYWkk5BUguioEV+gmWCgiJY2AgigeCRhVTiXPeud+M7b86B6ZaZfZ5z2TvLXnZKERERERERERERkakAHAWuAIvAnQnGdeCkev5dxCHgEbDJMLwAZhQzmYwDwBrD8wWYVUp/IctMjzWF9JNxEPjGdDmjlPGFnGP6LClkfCFXKyX+AF71HJ8rcz1WyPhCFiolvu9bIrBSmWtFIQrZOYD9o+3kQGOxclV/nGCu1cpcqwO+38MlGsAJdi8LJRoKCYZCgqGQYCgkGAqJv+2tMT/gdnN2B8Y4OeJte3+nI8j50hAkyZEmCElypAlCkhxpgpAkR5ogJMmRJghJcqQJQpIcaYKQJEfvIMDZykNu8x1r1B6MmxlwjV0r5G7l9W9aWiMsEctCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiG9yroFbPxhPO0QslEZpwdco5f0sGQJQpIcaYKQJEeaICTJkSYISXKkCUKSHGmCkCTHKMj3SpC50gjAkQ4hp0pLAOut/+c6cK1DyLHSEsCzSpCfwG1gbwkMcBH4WsnwCdhTWgK4TDejsG8nOH5i2uM18OEv7/1haQ1gH/COfGw2e4YVcAHYIhdLpWWAm9v3jQw8b+7e0XGEUW0b3AKjC+rB6GO4ZAE4DjxpTMwW8LK57xwTnN55CbgB3APuBxvL27+bzI2OfP3ffYmIiIiIiIiIiJRA/ALtQyq/7kV5uwAAAABJRU5ErkJggg=="/>
+                                        </defs>
+                                    </svg>
+                                </button></a>
+                            </td>
+                        </tr>
+
+                        <tr class="even:bg-gray-100 odd:bg-white">
+                            <td class="text-center py-6 text-black">8</td>
+                            <td class="text-black">peserta didik terlambat 1-15 menit</td>
+                            <td class="text-center text-black">1-2</td>
+                            <td class="flex items-center mt-3">
+                                <a href=""><button class="bg-green-500 hover:bg-green-700 py-2 px-2 rounded-md ml-4">
+                                    <svg width="30" height="30" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <rect y="0.5" width="40" height="38" fill="url(#pattern1)"/>
+                                        <defs>
+                                        <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                        <use xlink:href="#image0_1005_1706" transform="matrix(0.0095 0 0 0.01 0.025 0)"/>
+                                        </pattern>
+                                        <image id="image0_1005_1706" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAADN0lEQVR4nO2du2sVQRSHRwWNAa0S0WhtYVpBEQsfbRCsFGJiowENqNFSFEsfWFjmr9BSBBHExkeloJX4ABEsoqbV5JPBWczr3r25ZnbOzP19sN29yznzMc/dnXFOCCGEEEIIIYQQQgjRMwAHgcvAJWBv6nh6FmAAeMxyHgBbnDWAncBRYAyYMHKdCTFt+M/ctgFvaM19ZwGgD5gCXgHz2OUdMBxJRkXa5gs4DnwmHz4BWyPJ8EzFK+32Qa4DbhivEa04F0mG50rckm8dqJeRK9ORZHgOxC/9lZupHGtGxa1IMh41Y2B5B55Tn7ES+yLI8L8faM7Ev2D9aCpnbkeSMdichcUB+6FtJ/wCZoxcX4EnwMnSZOzqoO/4ESaFm11GkJuMELSf7dZxymUGOcoIgY930Ez1uYwABoHXXcz4t1sIfrIm0G8uI8i1ZpQohJxrRmlCKEFGKUIoRUYJQihJRu5CKE1GzkIoUUauQihVRo5CKFlGbkKINOkD9gN3/EMu4PxqHwf3pBDiybjb4hn9nuayy0wI8WSMtvn/W2B9c1lmIoSIa1PA05r7HGomy0yEEHmhEPhSc6+z8bPMRAgNjKZ8bjX3m4ybZSZCaGhoKyHG5hkSYmzSJyHGZuASYmw5REKMrU1JiLGFQglZAvAw5dshErIAv04EzKaoGQti0MSwAtidUkaIQUIqgBMpZYQYJKQCuJlSRohBQir8l0kpZYQYJKSDwpgNo6/o79pKyOJvUjzfgWfAvfAW/nCTT+kkJOC3q/BSXGIkxBgSYgwJMYaEGENCjCEhxpAQY0iIMSTEGBJiDAkxhoQYQ0KMISHGkBBjSIgxJMQYVoX4rfva8Rvod4UB9IfN2doxanWLvzFXGMDpDvI+kurkg042wRwvoabwt2Z4GT9rcvZlsiNVkC/Jb5vYmS6vumaq4nkSGUGIP1FGLOZCSiEbgfdLAuplPgCbkgkJUo5lvhn/WjEHjDgLANfXLK18ueqsEA50udajNWXOy/Bl4KwRmq+P9FafMeIsE84UuQi8KLTGzPuhrR9NJe/AVwswBBw2dmzeRJfXWMhlKHW5CiGEEEIIIYQQQgghhHDG+QOVNZG3s95fbwAAAABJRU5ErkJggg=="/>
+                                        </defs>
+                                    </svg>                                                                      
+                                </button></a>
+                                <a href=""><button class="bg-red-600 hover:bg-red-800 py-2 px-2 rounded-md ml-3">
+                                    <svg width="30" height="30" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <rect y="0.5" width="40" height="38" fill="url(#pattern2)"/>
+                                        <defs>
+                                        <pattern id="pattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                        <use xlink:href="#image0_1005_1708" transform="matrix(0.0095 0 0 0.01 0.025 0)"/>
+                                        </pattern>
+                                        <image id="image0_1005_1708" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACoUlEQVR4nO2dPWtUQRhGxw9QCzutxCAB/4JaiAiC2AeRWEU7CxGEYJNCLIKFnTYWkk5BUguioEV+gmWCgiJY2AgigeCRhVTiXPeud+M7b86B6ZaZfZ5z2TvLXnZKERERERERERERkakAHAWuAIvAnQnGdeCkev5dxCHgEbDJMLwAZhQzmYwDwBrD8wWYVUp/IctMjzWF9JNxEPjGdDmjlPGFnGP6LClkfCFXKyX+AF71HJ8rcz1WyPhCFiolvu9bIrBSmWtFIQrZOYD9o+3kQGOxclV/nGCu1cpcqwO+38MlGsAJdi8LJRoKCYZCgqGQYCgkGAqJv+2tMT/gdnN2B8Y4OeJte3+nI8j50hAkyZEmCElypAlCkhxpgpAkR5ogJMmRJghJcqQJQpIcaYKQJEfvIMDZykNu8x1r1B6MmxlwjV0r5G7l9W9aWiMsEctCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiG9yroFbPxhPO0QslEZpwdco5f0sGQJQpIcaYKQJEeaICTJkSYISXKkCUKSHGmCkCTHKMj3SpC50gjAkQ4hp0pLAOut/+c6cK1DyLHSEsCzSpCfwG1gbwkMcBH4WsnwCdhTWgK4TDejsG8nOH5i2uM18OEv7/1haQ1gH/COfGw2e4YVcAHYIhdLpWWAm9v3jQw8b+7e0XGEUW0b3AKjC+rB6GO4ZAE4DjxpTMwW8LK57xwTnN55CbgB3APuBxvL27+bzI2OfP3ffYmIiIiIiIiIiJRA/ALtQyq/7kV5uwAAAABJRU5ErkJggg=="/>
+                                        </defs>
+                                    </svg>
+                                </button></a>
+                            </td>
+                        </tr>
+
+                        <tr class="even:bg-gray-100 odd:bg-white">
+                            <td class="text-center py-6 text-black">9</td>
+                            <td class="text-black">peserta didik terlambat 15-40 menit</td>
+                            <td class="text-center text-black">3-5</td>
+                            <td class="flex items-center mt-3">
+                                <a href=""><button class="bg-green-500 hover:bg-green-700 py-2 px-2 rounded-md ml-4">
+                                    <svg width="30" height="30" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <rect y="0.5" width="40" height="38" fill="url(#pattern1)"/>
+                                        <defs>
+                                        <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                        <use xlink:href="#image0_1005_1706" transform="matrix(0.0095 0 0 0.01 0.025 0)"/>
+                                        </pattern>
+                                        <image id="image0_1005_1706" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAADN0lEQVR4nO2du2sVQRSHRwWNAa0S0WhtYVpBEQsfbRCsFGJiowENqNFSFEsfWFjmr9BSBBHExkeloJX4ABEsoqbV5JPBWczr3r25ZnbOzP19sN29yznzMc/dnXFOCCGEEEIIIYQQQgjRMwAHgcvAJWBv6nh6FmAAeMxyHgBbnDWAncBRYAyYMHKdCTFt+M/ctgFvaM19ZwGgD5gCXgHz2OUdMBxJRkXa5gs4DnwmHz4BWyPJ8EzFK+32Qa4DbhivEa04F0mG50rckm8dqJeRK9ORZHgOxC/9lZupHGtGxa1IMh41Y2B5B55Tn7ES+yLI8L8faM7Ev2D9aCpnbkeSMdichcUB+6FtJ/wCZoxcX4EnwMnSZOzqoO/4ESaFm11GkJuMELSf7dZxymUGOcoIgY930Ez1uYwABoHXXcz4t1sIfrIm0G8uI8i1ZpQohJxrRmlCKEFGKUIoRUYJQihJRu5CKE1GzkIoUUauQihVRo5CKFlGbkKINOkD9gN3/EMu4PxqHwf3pBDiybjb4hn9nuayy0wI8WSMtvn/W2B9c1lmIoSIa1PA05r7HGomy0yEEHmhEPhSc6+z8bPMRAgNjKZ8bjX3m4ybZSZCaGhoKyHG5hkSYmzSJyHGZuASYmw5REKMrU1JiLGFQglZAvAw5dshErIAv04EzKaoGQti0MSwAtidUkaIQUIqgBMpZYQYJKQCuJlSRohBQir8l0kpZYQYJKSDwpgNo6/o79pKyOJvUjzfgWfAvfAW/nCTT+kkJOC3q/BSXGIkxBgSYgwJMYaEGENCjCEhxpAQY0iIMSTEGBJiDAkxhoQYQ0KMISHGkBBjSIgxJMQYVoX4rfva8Rvod4UB9IfN2doxanWLvzFXGMDpDvI+kurkg042wRwvoabwt2Z4GT9rcvZlsiNVkC/Jb5vYmS6vumaq4nkSGUGIP1FGLOZCSiEbgfdLAuplPgCbkgkJUo5lvhn/WjEHjDgLANfXLK18ueqsEA50udajNWXOy/Bl4KwRmq+P9FafMeIsE84UuQi8KLTGzPuhrR9NJe/AVwswBBw2dmzeRJfXWMhlKHW5CiGEEEIIIYQQQgghhHDG+QOVNZG3s95fbwAAAABJRU5ErkJggg=="/>
+                                        </defs>
+                                    </svg>                                                                      
+                                </button></a>
+                                <a href=""><button class="bg-red-600 hover:bg-red-800 py-2 px-2 rounded-md ml-3">
+                                    <svg width="30" height="30" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <rect y="0.5" width="40" height="38" fill="url(#pattern2)"/>
+                                        <defs>
+                                        <pattern id="pattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                        <use xlink:href="#image0_1005_1708" transform="matrix(0.0095 0 0 0.01 0.025 0)"/>
+                                        </pattern>
+                                        <image id="image0_1005_1708" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACoUlEQVR4nO2dPWtUQRhGxw9QCzutxCAB/4JaiAiC2AeRWEU7CxGEYJNCLIKFnTYWkk5BUguioEV+gmWCgiJY2AgigeCRhVTiXPeud+M7b86B6ZaZfZ5z2TvLXnZKERERERERERERkakAHAWuAIvAnQnGdeCkev5dxCHgEbDJMLwAZhQzmYwDwBrD8wWYVUp/IctMjzWF9JNxEPjGdDmjlPGFnGP6LClkfCFXKyX+AF71HJ8rcz1WyPhCFiolvu9bIrBSmWtFIQrZOYD9o+3kQGOxclV/nGCu1cpcqwO+38MlGsAJdi8LJRoKCYZCgqGQYCgkGAqJv+2tMT/gdnN2B8Y4OeJte3+nI8j50hAkyZEmCElypAlCkhxpgpAkR5ogJMmRJghJcqQJQpIcaYKQJEfvIMDZykNu8x1r1B6MmxlwjV0r5G7l9W9aWiMsEctCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiG9yroFbPxhPO0QslEZpwdco5f0sGQJQpIcaYKQJEeaICTJkSYISXKkCUKSHGmCkCTHKMj3SpC50gjAkQ4hp0pLAOut/+c6cK1DyLHSEsCzSpCfwG1gbwkMcBH4WsnwCdhTWgK4TDejsG8nOH5i2uM18OEv7/1haQ1gH/COfGw2e4YVcAHYIhdLpWWAm9v3jQw8b+7e0XGEUW0b3AKjC+rB6GO4ZAE4DjxpTMwW8LK57xwTnN55CbgB3APuBxvL27+bzI2OfP3ffYmIiIiIiIiIiJRA/ALtQyq/7kV5uwAAAABJRU5ErkJggg=="/>
+                                        </defs>
+                                    </svg>
+                                </button></a>
+                            </td>
+                        </tr>
+
+                        <tr class="even:bg-gray-100 odd:bg-white">
+                            <td class="text-center py-6 text-black">10</td>
+                            <td class="text-black">peserta didik izin keluar dan tidak kembali ke sekolah</td>
+                            <td class="text-center text-black">10</td>
+                            <td class="flex items-center mt-3">
+                                <a href=""><button class="bg-green-500 hover:bg-green-700 py-2 px-2 rounded-md ml-4">
+                                    <svg width="30" height="30" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <rect y="0.5" width="40" height="38" fill="url(#pattern1)"/>
+                                        <defs>
+                                        <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                        <use xlink:href="#image0_1005_1706" transform="matrix(0.0095 0 0 0.01 0.025 0)"/>
+                                        </pattern>
+                                        <image id="image0_1005_1706" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAADN0lEQVR4nO2du2sVQRSHRwWNAa0S0WhtYVpBEQsfbRCsFGJiowENqNFSFEsfWFjmr9BSBBHExkeloJX4ABEsoqbV5JPBWczr3r25ZnbOzP19sN29yznzMc/dnXFOCCGEEEIIIYQQQgjRMwAHgcvAJWBv6nh6FmAAeMxyHgBbnDWAncBRYAyYMHKdCTFt+M/ctgFvaM19ZwGgD5gCXgHz2OUdMBxJRkXa5gs4DnwmHz4BWyPJ8EzFK+32Qa4DbhivEa04F0mG50rckm8dqJeRK9ORZHgOxC/9lZupHGtGxa1IMh41Y2B5B55Tn7ES+yLI8L8faM7Ev2D9aCpnbkeSMdichcUB+6FtJ/wCZoxcX4EnwMnSZOzqoO/4ESaFm11GkJuMELSf7dZxymUGOcoIgY930Ez1uYwABoHXXcz4t1sIfrIm0G8uI8i1ZpQohJxrRmlCKEFGKUIoRUYJQihJRu5CKE1GzkIoUUauQihVRo5CKFlGbkKINOkD9gN3/EMu4PxqHwf3pBDiybjb4hn9nuayy0wI8WSMtvn/W2B9c1lmIoSIa1PA05r7HGomy0yEEHmhEPhSc6+z8bPMRAgNjKZ8bjX3m4ybZSZCaGhoKyHG5hkSYmzSJyHGZuASYmw5REKMrU1JiLGFQglZAvAw5dshErIAv04EzKaoGQti0MSwAtidUkaIQUIqgBMpZYQYJKQCuJlSRohBQir8l0kpZYQYJKSDwpgNo6/o79pKyOJvUjzfgWfAvfAW/nCTT+kkJOC3q/BSXGIkxBgSYgwJMYaEGENCjCEhxpAQY0iIMSTEGBJiDAkxhoQYQ0KMISHGkBBjSIgxJMQYVoX4rfva8Rvod4UB9IfN2doxanWLvzFXGMDpDvI+kurkg042wRwvoabwt2Z4GT9rcvZlsiNVkC/Jb5vYmS6vumaq4nkSGUGIP1FGLOZCSiEbgfdLAuplPgCbkgkJUo5lvhn/WjEHjDgLANfXLK18ueqsEA50udajNWXOy/Bl4KwRmq+P9FafMeIsE84UuQi8KLTGzPuhrR9NJe/AVwswBBw2dmzeRJfXWMhlKHW5CiGEEEIIIYQQQgghhHDG+QOVNZG3s95fbwAAAABJRU5ErkJggg=="/>
+                                        </defs>
+                                    </svg>                                                                      
+                                </button></a>
+                                <a href=""><button class="bg-red-600 hover:bg-red-800 py-2 px-2 rounded-md ml-3">
+                                    <svg width="30" height="30" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <rect y="0.5" width="40" height="38" fill="url(#pattern2)"/>
+                                        <defs>
+                                        <pattern id="pattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                        <use xlink:href="#image0_1005_1708" transform="matrix(0.0095 0 0 0.01 0.025 0)"/>
+                                        </pattern>
+                                        <image id="image0_1005_1708" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACoUlEQVR4nO2dPWtUQRhGxw9QCzutxCAB/4JaiAiC2AeRWEU7CxGEYJNCLIKFnTYWkk5BUguioEV+gmWCgiJY2AgigeCRhVTiXPeud+M7b86B6ZaZfZ5z2TvLXnZKERERERERERERkakAHAWuAIvAnQnGdeCkev5dxCHgEbDJMLwAZhQzmYwDwBrD8wWYVUp/IctMjzWF9JNxEPjGdDmjlPGFnGP6LClkfCFXKyX+AF71HJ8rcz1WyPhCFiolvu9bIrBSmWtFIQrZOYD9o+3kQGOxclV/nGCu1cpcqwO+38MlGsAJdi8LJRoKCYZCgqGQYCgkGAqJv+2tMT/gdnN2B8Y4OeJte3+nI8j50hAkyZEmCElypAlCkhxpgpAkR5ogJMmRJghJcqQJQpIcaYKQJEfvIMDZykNu8x1r1B6MmxlwjV0r5G7l9W9aWiMsEctCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiG9yroFbPxhPO0QslEZpwdco5f0sGQJQpIcaYKQJEeaICTJkSYISXKkCUKSHGmCkCTHKMj3SpC50gjAkQ4hp0pLAOut/+c6cK1DyLHSEsCzSpCfwG1gbwkMcBH4WsnwCdhTWgK4TDejsG8nOH5i2uM18OEv7/1haQ1gH/COfGw2e4YVcAHYIhdLpWWAm9v3jQw8b+7e0XGEUW0b3AKjC+rB6GO4ZAE4DjxpTMwW8LK57xwTnN55CbgB3APuBxvL27+bzI2OfP3ffYmIiIiIiIiIiJRA/ALtQyq/7kV5uwAAAABJRU5ErkJggg=="/>
+                                        </defs>
+                                    </svg>
+                                </button></a>
+                            </td>
+                        </tr>
+
+                        <tr class="even:bg-gray-100 odd:bg-white">
+                            <td class="text-center py-6 text-black">11</td>
+                            <td class="text-black">peserta didik yang tidak mengikuti kbm tanpa izin dari guru kelas dan piket</td>
+                            <td class="text-center text-black">10</td>
+                            <td class="flex items-center mt-3">
+                                <a href=""><button class="bg-green-500 hover:bg-green-700 py-2 px-2 rounded-md ml-4">
+                                    <svg width="30" height="30" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <rect y="0.5" width="40" height="38" fill="url(#pattern1)"/>
+                                        <defs>
+                                        <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                        <use xlink:href="#image0_1005_1706" transform="matrix(0.0095 0 0 0.01 0.025 0)"/>
+                                        </pattern>
+                                        <image id="image0_1005_1706" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAADN0lEQVR4nO2du2sVQRSHRwWNAa0S0WhtYVpBEQsfbRCsFGJiowENqNFSFEsfWFjmr9BSBBHExkeloJX4ABEsoqbV5JPBWczr3r25ZnbOzP19sN29yznzMc/dnXFOCCGEEEIIIYQQQgjRMwAHgcvAJWBv6nh6FmAAeMxyHgBbnDWAncBRYAyYMHKdCTFt+M/ctgFvaM19ZwGgD5gCXgHz2OUdMBxJRkXa5gs4DnwmHz4BWyPJ8EzFK+32Qa4DbhivEa04F0mG50rckm8dqJeRK9ORZHgOxC/9lZupHGtGxa1IMh41Y2B5B55Tn7ES+yLI8L8faM7Ev2D9aCpnbkeSMdichcUB+6FtJ/wCZoxcX4EnwMnSZOzqoO/4ESaFm11GkJuMELSf7dZxymUGOcoIgY930Ez1uYwABoHXXcz4t1sIfrIm0G8uI8i1ZpQohJxrRmlCKEFGKUIoRUYJQihJRu5CKE1GzkIoUUauQihVRo5CKFlGbkKINOkD9gN3/EMu4PxqHwf3pBDiybjb4hn9nuayy0wI8WSMtvn/W2B9c1lmIoSIa1PA05r7HGomy0yEEHmhEPhSc6+z8bPMRAgNjKZ8bjX3m4ybZSZCaGhoKyHG5hkSYmzSJyHGZuASYmw5REKMrU1JiLGFQglZAvAw5dshErIAv04EzKaoGQti0MSwAtidUkaIQUIqgBMpZYQYJKQCuJlSRohBQir8l0kpZYQYJKSDwpgNo6/o79pKyOJvUjzfgWfAvfAW/nCTT+kkJOC3q/BSXGIkxBgSYgwJMYaEGENCjCEhxpAQY0iIMSTEGBJiDAkxhoQYQ0KMISHGkBBjSIgxJMQYVoX4rfva8Rvod4UB9IfN2doxanWLvzFXGMDpDvI+kurkg042wRwvoabwt2Z4GT9rcvZlsiNVkC/Jb5vYmS6vumaq4nkSGUGIP1FGLOZCSiEbgfdLAuplPgCbkgkJUo5lvhn/WjEHjDgLANfXLK18ueqsEA50udajNWXOy/Bl4KwRmq+P9FafMeIsE84UuQi8KLTGzPuhrR9NJe/AVwswBBw2dmzeRJfXWMhlKHW5CiGEEEIIIYQQQgghhHDG+QOVNZG3s95fbwAAAABJRU5ErkJggg=="/>
+                                        </defs>
+                                    </svg>                                                                      
+                                </button></a>
+                                <a href=""><button class="bg-red-600 hover:bg-red-800 py-2 px-2 rounded-md ml-3">
+                                    <svg width="30" height="30" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <rect y="0.5" width="40" height="38" fill="url(#pattern2)"/>
+                                        <defs>
+                                        <pattern id="pattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                        <use xlink:href="#image0_1005_1708" transform="matrix(0.0095 0 0 0.01 0.025 0)"/>
+                                        </pattern>
+                                        <image id="image0_1005_1708" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACoUlEQVR4nO2dPWtUQRhGxw9QCzutxCAB/4JaiAiC2AeRWEU7CxGEYJNCLIKFnTYWkk5BUguioEV+gmWCgiJY2AgigeCRhVTiXPeud+M7b86B6ZaZfZ5z2TvLXnZKERERERERERERkakAHAWuAIvAnQnGdeCkev5dxCHgEbDJMLwAZhQzmYwDwBrD8wWYVUp/IctMjzWF9JNxEPjGdDmjlPGFnGP6LClkfCFXKyX+AF71HJ8rcz1WyPhCFiolvu9bIrBSmWtFIQrZOYD9o+3kQGOxclV/nGCu1cpcqwO+38MlGsAJdi8LJRoKCYZCgqGQYCgkGAqJv+2tMT/gdnN2B8Y4OeJte3+nI8j50hAkyZEmCElypAlCkhxpgpAkR5ogJMmRJghJcqQJQpIcaYKQJEfvIMDZykNu8x1r1B6MmxlwjV0r5G7l9W9aWiMsEctCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiG9yroFbPxhPO0QslEZpwdco5f0sGQJQpIcaYKQJEeaICTJkSYISXKkCUKSHGmCkCTHKMj3SpC50gjAkQ4hp0pLAOut/+c6cK1DyLHSEsCzSpCfwG1gbwkMcBH4WsnwCdhTWgK4TDejsG8nOH5i2uM18OEv7/1haQ1gH/COfGw2e4YVcAHYIhdLpWWAm9v3jQw8b+7e0XGEUW0b3AKjC+rB6GO4ZAE4DjxpTMwW8LK57xwTnN55CbgB3APuBxvL27+bzI2OfP3ffYmIiIiIiIiIiJRA/ALtQyq/7kV5uwAAAABJRU5ErkJggg=="/>
+                                        </defs>
+                                    </svg>
+                                </button></a>
+                            </td>
+                        </tr>
+
+                        <tr class="even:bg-gray-100 odd:bg-white">
+                            <td class="text-center py-6 text-black">12</td>
+                            <td class="text-black">pelangaran lainnya seputar kehadiran peserta didik</td>
+                            <td class="text-center text-black">30-100</td>
+                            <td class="flex items-center mt-3">
+                                <a href=""><button class="bg-green-500 hover:bg-green-700 py-2 px-2 rounded-md ml-4">
+                                    <svg width="30" height="30" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <rect y="0.5" width="40" height="38" fill="url(#pattern1)"/>
+                                        <defs>
+                                        <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                        <use xlink:href="#image0_1005_1706" transform="matrix(0.0095 0 0 0.01 0.025 0)"/>
+                                        </pattern>
+                                        <image id="image0_1005_1706" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAADN0lEQVR4nO2du2sVQRSHRwWNAa0S0WhtYVpBEQsfbRCsFGJiowENqNFSFEsfWFjmr9BSBBHExkeloJX4ABEsoqbV5JPBWczr3r25ZnbOzP19sN29yznzMc/dnXFOCCGEEEIIIYQQQgjRMwAHgcvAJWBv6nh6FmAAeMxyHgBbnDWAncBRYAyYMHKdCTFt+M/ctgFvaM19ZwGgD5gCXgHz2OUdMBxJRkXa5gs4DnwmHz4BWyPJ8EzFK+32Qa4DbhivEa04F0mG50rckm8dqJeRK9ORZHgOxC/9lZupHGtGxa1IMh41Y2B5B55Tn7ES+yLI8L8faM7Ev2D9aCpnbkeSMdichcUB+6FtJ/wCZoxcX4EnwMnSZOzqoO/4ESaFm11GkJuMELSf7dZxymUGOcoIgY930Ez1uYwABoHXXcz4t1sIfrIm0G8uI8i1ZpQohJxrRmlCKEFGKUIoRUYJQihJRu5CKE1GzkIoUUauQihVRo5CKFlGbkKINOkD9gN3/EMu4PxqHwf3pBDiybjb4hn9nuayy0wI8WSMtvn/W2B9c1lmIoSIa1PA05r7HGomy0yEEHmhEPhSc6+z8bPMRAgNjKZ8bjX3m4ybZSZCaGhoKyHG5hkSYmzSJyHGZuASYmw5REKMrU1JiLGFQglZAvAw5dshErIAv04EzKaoGQti0MSwAtidUkaIQUIqgBMpZYQYJKQCuJlSRohBQir8l0kpZYQYJKSDwpgNo6/o79pKyOJvUjzfgWfAvfAW/nCTT+kkJOC3q/BSXGIkxBgSYgwJMYaEGENCjCEhxpAQY0iIMSTEGBJiDAkxhoQYQ0KMISHGkBBjSIgxJMQYVoX4rfva8Rvod4UB9IfN2doxanWLvzFXGMDpDvI+kurkg042wRwvoabwt2Z4GT9rcvZlsiNVkC/Jb5vYmS6vumaq4nkSGUGIP1FGLOZCSiEbgfdLAuplPgCbkgkJUo5lvhn/WjEHjDgLANfXLK18ueqsEA50udajNWXOy/Bl4KwRmq+P9FafMeIsE84UuQi8KLTGzPuhrR9NJe/AVwswBBw2dmzeRJfXWMhlKHW5CiGEEEIIIYQQQgghhHDG+QOVNZG3s95fbwAAAABJRU5ErkJggg=="/>
+                                        </defs>
+                                    </svg>                                                                      
+                                </button></a>
+                                <a href=""><button class="bg-red-600 hover:bg-red-800 py-2 px-2 rounded-md ml-3">
+                                    <svg width="30" height="30" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <rect y="0.5" width="40" height="38" fill="url(#pattern2)"/>
+                                        <defs>
+                                        <pattern id="pattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                        <use xlink:href="#image0_1005_1708" transform="matrix(0.0095 0 0 0.01 0.025 0)"/>
+                                        </pattern>
+                                        <image id="image0_1005_1708" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACoUlEQVR4nO2dPWtUQRhGxw9QCzutxCAB/4JaiAiC2AeRWEU7CxGEYJNCLIKFnTYWkk5BUguioEV+gmWCgiJY2AgigeCRhVTiXPeud+M7b86B6ZaZfZ5z2TvLXnZKERERERERERERkakAHAWuAIvAnQnGdeCkev5dxCHgEbDJMLwAZhQzmYwDwBrD8wWYVUp/IctMjzWF9JNxEPjGdDmjlPGFnGP6LClkfCFXKyX+AF71HJ8rcz1WyPhCFiolvu9bIrBSmWtFIQrZOYD9o+3kQGOxclV/nGCu1cpcqwO+38MlGsAJdi8LJRoKCYZCgqGQYCgkGAqJv+2tMT/gdnN2B8Y4OeJte3+nI8j50hAkyZEmCElypAlCkhxpgpAkR5ogJMmRJghJcqQJQpIcaYKQJEfvIMDZykNu8x1r1B6MmxlwjV0r5G7l9W9aWiMsEctCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiGxykIhscpCIbHKQiG9yroFbPxhPO0QslEZpwdco5f0sGQJQpIcaYKQJEeaICTJkSYISXKkCUKSHGmCkCTHKMj3SpC50gjAkQ4hp0pLAOut/+c6cK1DyLHSEsCzSpCfwG1gbwkMcBH4WsnwCdhTWgK4TDejsG8nOH5i2uM18OEv7/1haQ1gH/COfGw2e4YVcAHYIhdLpWWAm9v3jQw8b+7e0XGEUW0b3AKjC+rB6GO4ZAE4DjxpTMwW8LK57xwTnN55CbgB3APuBxvL27+bzI2OfP3ffYmIiIiIiIiIiJRA/ALtQyq/7kV5uwAAAABJRU5ErkJggg=="/>
+                                        </defs>
+                                    </svg>
+                                </button></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                  </table>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const toggleSidebarButton = document.getElementById("toggleSidebar");
+    const sidebar = document.getElementById("sidebar");
+    const mainContent = document.getElementById("mainContent");
+
+    function toggleSidebar() {
+      sidebar.classList.toggle("-translate-x-64");
+      mainContent.classList.toggle("ml-0");
+      if (sidebar.classList.contains("-translate-x-64")) {
+        localStorage.setItem("sidebarStatus", "open");
+      } else {
+        localStorage.setItem("sidebarStatus", "closed");
+      }
+    }
+
+    toggleSidebarButton.addEventListener("click", toggleSidebar);
+
+    const storedSidebarStatus = localStorage.getItem("sidebarStatus");
+    if (storedSidebarStatus === "open") {
+      toggleSidebar();
+    }
+
+    const preloaderWrapper = document.querySelector('.preloader-wrapper');
+
+    window.addEventListener("load", function () {
+      setInterval(function () {
+        preloaderWrapper.classList.add('fade-out-animation');
+      }, 300);
+    })
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+</body>
+
+</html>
