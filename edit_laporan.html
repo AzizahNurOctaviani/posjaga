@@ -40,15 +40,18 @@
   <title>Edit Laporan</title>
   <style>
     .nav-item {
-            transition: background-color 0.2s, color 0.2s;
-        } 
+      transition: background-color 0.2s, color 0.2s;
+    }
+
     body {
-        overflow-x: hidden;
-      }
-      #mainContent {
-        max-width: 100%;
-        overflow: hidden;
-      }
+      overflow-x: hidden;
+    }
+
+    #mainContent {
+      max-width: 100%;
+      overflow: hidden;
+    }
+
     .preloader-wrapper {
       position: fixed;
       top: 0;
@@ -66,39 +69,94 @@
       opacity: 0;
       visibility: hidden;
     }
+
+    #sidebar {
+      transition: width 0.3s;
+    }
+
+    #sidebar:hover {
+      width: 16rem;
+    }
+
+    #sidebar .nav-link span {
+      max-width: 0;
+      overflow: hidden;
+    }
+    .nav-link:hover svg path{
+    fill: #7F1D1D;
+}
+
+    #sidebar:hover .nav-link span {
+      max-width: 150px;
+    }
+    .hover\:fill-red-900:hover path {
+    fill: #7F1D1D;
+    }
+    #logout_id::before {
+        content: '';
+        position: absolute;
+        top: -12px;
+        right: 0%;
+        margin-right: 8px;
+        border-width: 0 12px 14px 12px;
+        border-style: solid;
+        border-color: transparent transparent #900 transparent;
+    }
   </style>
 </head>
 
-<body>
+<body class="font-sans antialiased bg-gray-100">
   <div class="w-screen">
     <div>
-      <div class="flex flex-col md:flex-row">
-        <aside id="sidebar"
-          class="fixed w-64 bg-red-900 md:min-h-screen border-r border-gray-100 transform transition-transform ease-in-out duration-300">
-          <div class="flex items-center justify-center p-5 text-white">
-            <!-- logo -->
-            <a class="flex items-center mx-8 transition duration-200">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" viewBox="0 0 496 512">
-                <path fill="#FFFFFF"
-                  d="M248 8C111 8 0 119 0 256s111 248 248 248s248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88s-88-39.4-88-88s39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2c18.8-35.4 55.6-59.8 98.5-59.8c2.4 0 4.8.4 7.1 1.1c13 4.2 26.6 6.9 40.9 6.9c14.3 0 28-2.7 40.9-6.9c2.3-.7 4.7-1.1 7.1-1.1c42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z" />
-              </svg>
+      <nav class="h-20 pl-4 pr-10 py-3 w-full flex justify-between bg-white text-white shadow-md fixed top-0 z-50">
+        <div class="flex items-center">
+            <a rel="noopener noreferrer" href="" class="flex justify-start">
+                <div class="flex items-center justify-center">
+                    <img class="h-10"
+                        src="https://smktelkom-pwt.sch.id/wp-content/uploads/2018/10/logo-telkom-schools.png"
+                        alt="logo" />
+                </div>
             </a>
-          </div>
-
+        </div>
+        <div class="flex items-center">
+            <p class="mr-6 text-black font-base text-xl uppercase font-semibold">Admin</p>
+            <div class="flex items-center relative ml-auto" onclick="toggleLogout('logout_id')">
+                <svg width="50" height="50" viewBox="0 0 60 60" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M29.9996 0.949219C13.4289 0.949219 0.00292969 14.1201 0.00292969 30.376C0.00292969 46.6319 13.4289 59.8027 29.9996 59.8027C46.5704 59.8027 59.9963 46.6319 59.9963 30.376C59.9963 14.1201 46.5704 0.949219 29.9996 0.949219ZM29.9996 12.3402C35.878 12.3402 40.6436 17.0153 40.6436 22.782C40.6436 28.5487 35.878 33.2237 29.9996 33.2237C24.1212 33.2237 19.3556 28.5487 19.3556 22.782C19.3556 17.0153 24.1212 12.3402 29.9996 12.3402ZM29.9996 53.158C22.8996 53.158 16.5374 50.0017 12.2798 45.0656C14.5537 40.8652 19.0049 37.97 24.1938 37.97C24.4841 37.97 24.7744 38.0174 25.0526 38.1005C26.625 38.5989 28.27 38.9192 29.9996 38.9192C31.7293 38.9192 33.3863 38.5989 34.9466 38.1005C35.2248 38.0174 35.5151 37.97 35.8054 37.97C40.9944 37.97 45.4455 40.8652 47.7194 45.0656C43.4618 50.0017 37.0996 53.158 29.9996 53.158Z"
+                        fill="black" />
+                </svg>
+                <div id="logout_id"
+                    class="absolute top-10 right-0 mt-7 w-44 bg-neutral-300 bg-opacity-10 items-center justify-center hidden">
+                    <div class="bg-red-900 rounded-lg flex items-center px-3 drop-shadow-xl shadow-black">
+                      <svg class="fixed" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.91667 26.25C2.11459 26.25 1.42771 25.9642 0.856044 25.3925C0.284377 24.8208 -0.000969746 24.1344 2.47595e-06 23.3333V2.91667C2.47595e-06 2.11459 0.285836 1.42771 0.857503 0.856044C1.42917 0.284377 2.11556 -0.000969746 2.91667 2.47595e-06H13.125V2.91667H2.91667V23.3333H13.125V26.25H2.91667ZM18.9583 20.4167L16.9531 18.3021L20.6719 14.5833H8.75V11.6667H20.6719L16.9531 7.94792L18.9583 5.83334L26.25 13.125L18.9583 20.4167Z" fill="white"/>
+                      </svg>                        
+                      <p class="uppercase text-white text-xl font-base font-semibold text-center py-2 ml-12">logout</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+      <div class="flex flex-col md:flex-row mt-20">
+        <aside id="sidebar"
+          class="fixed w-20 bg-red-900 md:min-h-screen border-r border-gray-100 ease-in-out duration-300">
+          
           <!-- nav -->
           <nav class="ml-2 mt-12 text-center">
             <div class="flex flex-col h-[80vh] justify-between">
               <div class="">
-                <a href="dashboard_baru.html" class="flex items-center px-2 text-white font-semibold text-md py-3 ml-5 transition duration-200">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 30 30" fill="none">
-                    <path
-                      d="M0 0H13.125V10.2083H0V0ZM2.91667 2.91667V7.29167H10.2083V2.91667H2.91667ZM16.0417 0H29.1667V16.0417H16.0417V0ZM18.9583 2.91667V13.125H26.25V2.91667H18.9583ZM0 13.125H13.125V29.1667H0V13.125ZM2.91667 16.0417V26.25H10.2083V16.0417H2.91667ZM16.0417 18.9583H29.1667V29.1667H16.0417V18.9583ZM18.9583 21.875V26.25H26.25V21.875H18.9583Z"
-                      fill="#FFFFFF" />
-                  </svg>
-                  <span class="px-2 font-montserrat ">DASHBOARD</span>
-                </a>
-                <a href="peraturan.html" class="flex items-center px-2 text-white font-semibold text-md py-3 ml-3 mt-2 transition duration-200">
-                  <svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <a href="dashboard_baru.html" class="nav-link flex items-center px-4 text-white font-semibold text-md py-3 transition duration-200 hover:bg-white hover:rounded mr-2 hover:text-red-900 hover:font-semibold">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="fixed" width="27" height="27" viewBox="0 0 30 30" fill="none">
+                      <path
+                        d="M0 0H13.125V10.2083H0V0ZM2.91667 2.91667V7.29167H10.2083V2.91667H2.91667ZM16.0417 0H29.1667V16.0417H16.0417V0ZM18.9583 2.91667V13.125H26.25V2.91667H18.9583ZM0 13.125H13.125V29.1667H0V13.125ZM2.91667 16.0417V26.25H10.2083V16.0417H2.91667ZM16.0417 18.9583H29.1667V29.1667H16.0417V18.9583ZM18.9583 21.875V26.25H26.25V21.875H18.9583Z"
+                        fill="#F6F6F6" />
+                    </svg>
+                    <span class="ml-12 font-montserrat truncate">DASHBOARD</span>
+                  </a>
+                <a href="peraturan.html" class="nav-link flex items-center px-3 text-white font-semibold text-md py-3 mt-4 transition duration-200 hover:bg-white hover:rounded mr-2 hover:text-red-900 hover:fill-red-900 hover:font-semibold">
+                  <svg width="34" height="35" class="fixed" viewBox="0 0 32 33" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_1005_1599)">
                     <mask id="mask0_1005_1599" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="3" width="32" height="32">
                     <rect y="3" width="32" height="32" fill="#D9D9D9"/>
@@ -113,10 +171,10 @@
                     </clipPath>
                     </defs>
                     </svg>                    
-                  <span class="px-2 font-montserrat">PELANGGARAN</span>
+                  <span class="ml-12 font-montserrat truncate">PELANGGARAN</span>
                 </a>
-                <a href="pelanggar.html" class="flex items-center px-2 text-white font-semibold text-md py-3 ml-5 mt-2 transition duration-200">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24">
+                <a href="pelanggar.html" class="flex items-center px-3 text-white font-semibold text-md py-3 mt-4 transition duration-200 hover:bg-white hover:rounded mr-2 hover:text-red-900 hover:stroke-red-900 hover:font-semibold">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="34" height="35" class="fixed" viewBox="0 0 24 24">
                     <g fill="none">
                       <path stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M12 7v6" />
                       <circle cx="12" cy="16" r="1" fill="currentColor" />
@@ -124,18 +182,7 @@
                         d="M22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464c.974.974 1.3 2.343 1.41 4.536" />
                     </g>
                   </svg>
-                  <span class="px-2 font-montserrat">LAPORAN</span>
-                </a>
-              </div>
-
-              <div class="flex justify-center pr-6">
-                <a class="flex items-center px-2 text-white font-semibold text-md py-3 mt-7 transition duration-200">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 35 35" fill="none">
-                    <path
-                      d="M7.29167 30.625C6.48959 30.625 5.80271 30.3392 5.23104 29.7675C4.65938 29.1958 4.37403 28.5094 4.375 27.7083V7.29167C4.375 6.48959 4.66084 5.80271 5.2325 5.23104C5.80417 4.65938 6.49056 4.37403 7.29167 4.375H17.5V7.29167H7.29167V27.7083H17.5V30.625H7.29167ZM23.3333 24.7917L21.3281 22.6771L25.0469 18.9583H13.125V16.0417H25.0469L21.3281 12.3229L23.3333 10.2083L30.625 17.5L23.3333 24.7917Z"
-                      fill="white" />
-                  </svg>
-                  <span class="px-2 font-montserrat"><a class="flex items-center justify-center mt-7 text-white" href="/logout">LOG OUT</a></span>
+                  <span class="ml-12 font-montserrat truncate">LAPORAN</span>
                 </a>
               </div>
             </div>
@@ -143,44 +190,34 @@
         </aside>
 
         <div id="mainContent" class="w-full md:flex-1 ml-60 transition-all duration-300">
-          <nav class="h-20 pl-4 pr-10 py-3 w-full flex justify-between bg-white text-white shadow-md">
-            <div class="flex items-center">
-              <button id="toggleSidebar" class="text-gray-800 mr-3 w-10 h-10 ml-4">
-                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5">
-                  </path>
-                </svg>
-              </button>
-              <a rel="noopener noreferrer" href="" class="flex justify-start">
-                <div class="flex items-center justify-center">
-                  <img class="h-10"
-                    src="https://smktelkom-pwt.sch.id/wp-content/uploads/2018/10/logo-telkom-schools.png" alt="logo" />
-                </div>
-              </a>
-            </div>
-          </nav>
           <main class="flex items-center justify-center">
-            <div class="mt-10">
+            <div class="mt-14 bg-neutral-200 px-16 py-3 rounded-lg">
                 <form action="" class="w-full py-10">
                     <label for="" class="uppercase text-black font-bold text-sm font-montserrat">nama</label><br>
-                    <input type="text" class="w-full bg-neutral-200 px-3 py-4 rounded-lg my-4" placeholder="SISWA"><br>
+                    <input type="text" class="w-full bg-neutral-300 px-3 py-2 rounded-lg my-2" placeholder="SISWA"><br>
                     <label for="" class="uppercase text-black font-bold text-sm font-montserrat">kelas</label><br>
-                    <input type="text" class="w-full bg-neutral-200 px-3 py-4 rounded-lg my-4" placeholder="SISWA"><br>
+                    <input type="text" class="w-full bg-neutral-300 px-3 py-2 rounded-lg my-2" placeholder="SISWA"><br>
                     <label for="" class="uppercase text-black font-bold text-sm font-montserrat">jurusan</label><br>
-                    <input type="text" class="w-full bg-neutral-200 px-3 py-4 rounded-lg my-4" placeholder="SISWA"><br>
+                    <input type="text" class="w-full bg-neutral-300 px-3 py-2 rounded-lg my-2" placeholder="SISWA"><br>
                     <label for="" class="uppercase text-black font-bold text-sm font-montserrat">pelanggaran</label><br>
-                    <input type="text" class="w-full bg-neutral-200 px-3 py-4 rounded-lg my-4" placeholder="SISWA"><br>
+                    <input type="text" class="w-full bg-neutral-300 px-3 py-2 rounded-lg my-2" placeholder="SISWA"><br>
                     <label for="" class="uppercase text-black font-bold text-sm font-montserrat">poin</label><br>
-                    <input type="text" class="w-full bg-neutral-200 px-3 py-4 rounded-lg my-4 " placeholder="3-7"><br>
+                    <input type="text" class="w-full bg-neutral-300 px-3 py-2 rounded-lg my-2 " placeholder="3-7"><br>
                     <button class="bg-red-600 text-white px-72 py-2 rounded-full hover:bg-red-700 mt-6">Ubah</button>
                 </form>
+            </div>
             </div>
           </main>
         </div>
       </div>
     </div>
   </div>
+  <script>
+    function toggleLogout(LogoutId) {
+        var formElement = document.getElementById(LogoutId);
+        formElement.classList.toggle('hidden');
+    }
+</script>
   <script>
     const toggleSidebarButton = document.getElementById("toggleSidebar");
     const sidebar = document.getElementById("sidebar");
