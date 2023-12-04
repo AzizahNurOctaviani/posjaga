@@ -3,52 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>from</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Tambah</title>
     <script>
-    tailwind.config = {
-        darkMode: "class",
-        theme: {
-            fontFamily: {
-                montserrat: ["Montserrat Alternates"],
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                fontFamily: {
+                    montserrat: ["Montserrat Alternates"],
+                },
             },
-        },
-        corePlugins: {
-            preflight: false,
-        },
-    };
+            corePlugins: {
+                preflight: false,
+            },
+        };
     </script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-neutral-800 font-montserrat flex flex-col items-center justify-center h-screen">
-    <form action="" class="w-full md:w-1/3 bg-white rounded-lg shadow-lg px-16 py-14">
-
-        <div><svg width="40" height="40" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" class="ml-[-60px] mt-[-40px]">
-        <path d="M20.3263 20.3263C20.5295 20.1225 20.7708 19.9609 21.0366 19.8506C21.3024 19.7404 21.5873 19.6836 21.875 19.6836C22.1627 19.6836 22.4476 19.7404 22.7134 19.8506C22.9792 19.9609 23.2206 20.1225 23.4238 20.3263L35 31.9069L46.5763 20.3263C46.7796 20.1229 47.0211 19.9615 47.2868 19.8515C47.5526 19.7414 47.8374 19.6847 48.125 19.6847C48.4126 19.6847 48.6974 19.7414 48.9632 19.8515C49.2289 19.9615 49.4704 20.1229 49.6738 20.3263C49.8771 20.5296 50.0385 20.7711 50.1485 21.0368C50.2586 21.3026 50.3153 21.5874 50.3153 21.875C50.3153 22.1626 50.2586 22.4474 50.1485 22.7132C50.0385 22.9789 49.8771 23.2204 49.6738 23.4238L38.0931 35L49.6738 46.5763C49.8771 46.7796 50.0385 47.0211 50.1485 47.2868C50.2586 47.5526 50.3153 47.8374 50.3153 48.125C50.3153 48.4126 50.2586 48.6974 50.1485 48.9632C50.0385 49.2289 49.8771 49.4704 49.6738 49.6738C49.4704 49.8771 49.2289 50.0385 48.9632 50.1485C48.6974 50.2586 48.4126 50.3153 48.125 50.3153C47.8374 50.3153 47.5526 50.2586 47.2868 50.1485C47.0211 50.0385 46.7796 49.8771 46.5763 49.6738L35 38.0931L23.4238 49.6738C23.2204 49.8771 22.9789 50.0385 22.7132 50.1485C22.4474 50.2586 22.1626 50.3153 21.875 50.3153C21.5874 50.3153 21.3026 50.2586 21.0368 50.1485C20.7711 50.0385 20.5296 49.8771 20.3263 49.6738C20.1229 49.4704 19.9615 49.2289 19.8515 48.9632C19.7414 48.6974 19.6847 48.4126 19.6847 48.125C19.6847 47.8374 19.7414 47.5526 19.8515 47.2868C19.9615 47.0211 20.1229 46.7796 20.3263 46.5763L31.9069 35L20.3263 23.4238C20.1225 23.2206 19.9609 22.9792 19.8506 22.7134C19.7404 22.4476 19.6836 22.1627 19.6836 21.875C19.6836 21.5873 19.7404 21.3024 19.8506 21.0366C19.9609 20.7708 20.1225 20.5295 20.3263 20.3263Z" fill="black"/>
-        </svg></div>
-
-        <h2 class="uppercase font-black text-center mb-4 text-black text-lg">form</h2>
-
-        <div class="w-full">
-
-        <label for="" class="uppercase text-gray-500 font-semibold text-sm">nama</label><br>
-        <input type="text" class="w-full bg-neutral-200 px-4 py-2 rounded-lg shadow-md my-3"><br>
-        <label for="" class="uppercase text-gray-500 font-semibold text-sm">nis</label><br>
-        <input type="text" class="w-full bg-neutral-200 px-4 py-2 rounded-lg shadow-md my-3"><br>
-        <label for="" class="uppercase text-gray-500 font-semibold text-sm">kelas</label><br>
-        <input type="text" class="w-full bg-neutral-200 px-4 py-2 rounded-lg shadow-md my-3"><br>
-        <label for="" class="uppercase text-gray-500 font-semibold text-sm">jurusan</label><br>
-        <input type="text" class="w-full bg-neutral-200 px-4 py-2 rounded-lg shadow-md my-3"><br>
-        <label for="" class="uppercase text-gray-500 font-semibold text-sm">alasan</label><br>
-        <input type="text" class="w-full bg-neutral-200 px-4 py-2 rounded-lg shadow-md my-3"><br>
+<body>
+    <div class="flex flex-col items-center justify-center">
+    <form action="" class="w-full md:w-1/3 px-16 py-10">
+        <label for="" class="uppercase text-black font-bold text-sm font-montserrat">masukkan nis kalian</label><br>
+        <input type="text" class="w-full bg-neutral-100 px-3 py-4 rounded-lg my-4 placeholder-gray-500 placeholder:uppercase placeholder:font-semibold" placeholder="contoh : 543222131"><br>
+        <label for="" class="uppercase text-black font-bold text-sm font-montserrat">pilih pengawas yang sedang piket</label><br>
+        <div class="relative">
+          <select id="customSelect" class="mr-40 bg-neutral-100 border rounded-md pl-2 w-full py-2 appearance-none font-semibold uppercase">
+            <option value="kehadiran">pengawas 1</option>
+            <option value="penampilan">pengawas 2</option>
+            <option value="perilaku">pengawas 3</option>
+        </select>
+        <div class="mr-2 absolute inset-y-0 right-0 flex items-center pointer-events-none">
+          <svg id="arrowIcon" class="h-6 w-6 text-black transform transition-transform rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
         </div>
-
-        <div class="w-full text-center">
-            <button class="bg-red-600 p-2 px-12 uppercase text-white rounded-lg mt-8 font-semibold">submit</button>
+      </div><br>
+        <label for="" class="uppercase text-black font-bold text-sm font-montserrat">pilih aturan yang dilanggar</label><br>
+        <div class="relative">
+          <select id="customSelect" class="mr-40 bg-neutral-100 border  rounded-md pl-2 w-full py-2 appearance-none font-semibold uppercase">
+            <option value="kehadiran">aturan 1</option>
+            <option value="penampilan">aturan 2</option>
+            <option value="perilaku">aturan 3</option>
+        </select>
+        <div class="mr-2 absolute inset-y-0 right-0 flex items-center pointer-events-none">
+          <svg id="arrowIcon" class="h-6 w-6 text-black transform transition-transform rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
         </div>
+      </div><br>
+        <button class="bg-red-700 text-white px-48 py-2 rounded-full hover:bg-red-600 ">KIRIM</button>
+      </form>
+    </div>
 </body>
 </html>
